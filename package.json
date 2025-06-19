@@ -1,0 +1,29 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "My Professional Experience",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'Build step for Netlify (e.g., copying files, if needed)'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cacious7/my-cv.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cacious7/my-cv/issues"
+  },
+  "homepage": "https://github.com/cacious7/my-cv#readme",
+  "dependencies": {
+    "chrome-aws-lambda": "^10.1.0",
+    "express": "^5.1.0",
+    "puppeteer-core": "^24.10.2",
+    "serverless-http": "^3.2.0"
+  }
+}
