@@ -273,16 +273,14 @@ describe('PDF Generator', () => {
 			expect(mockAddPage).toHaveBeenCalled()
 		})
 
-		it('should set correct font sizes for different sections', async () => {
-			await generateCleanPDF(cvDataFixture)
-			
-			// Name should be 20pt
-			expect(mockSetFontSize).toHaveBeenCalledWith(20)
-			
-			// Section headers should be 11pt
-			expect(mockSetFontSize).toHaveBeenCalledWith(11)
-			
-			// Body text should be around 9-10pt
+	it('should set correct font sizes for different sections', async () => {
+		await generateCleanPDF(cvDataFixture)
+		
+		// Name should be 22pt (updated for better visibility)
+		expect(mockSetFontSize).toHaveBeenCalledWith(22)
+		
+		// Section headers should be 11pt
+		expect(mockSetFontSize).toHaveBeenCalledWith(11)			// Body text should be around 9-10pt
 			expect(mockSetFontSize).toHaveBeenCalledWith(9)
 			expect(mockSetFontSize).toHaveBeenCalledWith(9.5)
 		})

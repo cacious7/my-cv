@@ -67,83 +67,128 @@ export async function generateCleanPDF(cvData: CVData) {
 	// === HEADER SECTION ===
 	const contact = cvData.contact_information_digital_footprint
 	
-	// Name - Large and bold
-	pdf.setFontSize(20)
+	// Name - Large, bold, and prominent
+	pdf.setFontSize(22)
 	pdf.setFont('helvetica', 'bold')
 	pdf.setTextColor(colors.dark[0], colors.dark[1], colors.dark[2])
 	pdf.text(contact.full_name.toUpperCase(), margin, yPos)
-	yPos += 8
+	yPos += 7
 
-	// Title
-	pdf.setFontSize(12)
-	pdf.setFont('helvetica', 'normal')
+	// Title - slightly larger and bolder
+	pdf.setFontSize(13)
+	pdf.setFont('helvetica', 'bold')
 	pdf.setTextColor(colors.primary[0], colors.primary[1], colors.primary[2])
 	pdf.text(contact.professional_title, margin, yPos)
 	yPos += 7
 
-	// Contact Information with clickable links
-	pdf.setFontSize(9)
+	// Contact Information - better spacing and more prominent
+	pdf.setFontSize(9.5)
 	pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
 	let xOffset = margin
 	
 	// Location
+	pdf.setFont('helvetica', 'normal')
 	pdf.text(contact.location, xOffset, yPos)
-	xOffset += pdf.getTextWidth(contact.location) + 4
+	xOffset += pdf.getTextWidth(contact.location) + 5
 	pdf.text('|', xOffset, yPos)
-	xOffset += 4
+	xOffset += 5
 	
-	// Phone (clickable)
-	const phoneWidth = addLink(contact.phone_number, `tel:${contact.phone_number}`, 9, xOffset)
-	xOffset += phoneWidth + 4
+	// Phone (clickable with visual emphasis)
+	pdf.setFont('helvetica', 'bold')
+	const phoneWidth = addLink(contact.phone_number, `tel:${contact.phone_number}`, 9.5, xOffset)
+	xOffset += phoneWidth + 5
+	pdf.setFont('helvetica', 'normal')
 	pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
 	pdf.text('|', xOffset, yPos)
-	xOffset += 4
+	xOffset += 5
 	
-	// Email (clickable)
-	addLink(contact.email_addresses[0], `mailto:${contact.email_addresses[0]}`, 9, xOffset)
+	// Email (clickable with visual emphasis)
+	pdf.setFont('helvetica', 'bold')
+	addLink(contact.email_addresses[0], `mailto:${contact.email_addresses[0]}`, 9.5, xOffset)
 	yPos += 5
 
-	// Social Links - all clickable
+	// Social Links - all clickable with better spacing
 	xOffset = margin
-	addLink('LinkedIn', contact.links.linkedin, 9, xOffset)
-	xOffset += pdf.getTextWidth('LinkedIn') + 10
+	pdf.setFont('helvetica', 'bold')
+	addLink('LinkedIn', contact.links.linkedin, 9.5, xOffset)
+	xOffset += pdf.getTextWidth('LinkedIn') + 8
+	pdf.setFont('helvetica', 'normal')
 	pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
-	pdf.text('|', xOffset, yPos)
-	xOffset += 4
+	pdf.text('•', xOffset, yPos)
+	xOffset += 6
 	
-	addLink('GitHub', contact.links.github, 9, xOffset)
-	xOffset += pdf.getTextWidth('GitHub') + 10
+	pdf.setFont('helvetica', 'bold')
+	addLink('GitHub', contact.links.github, 9.5, xOffset)
+	xOffset += pdf.getTextWidth('GitHub') + 8
+	pdf.setFont('helvetica', 'normal')
 	pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
-	pdf.text('|', xOffset, yPos)
-	xOffset += 4
+	pdf.text('•', xOffset, yPos)
+	xOffset += 6
 	
-	addLink('Stack Overflow', contact.links.stack_overflow, 9, xOffset)
-	yPos += 8
+	pdf.setFont('helvetica', 'bold')
+	addLink('Stack Overflow', contact.links.stack_overflow, 9.5, xOffset)
+	xOffset += pdf.getTextWidth('Stack Overflow') + 8
+	pdf.setFont('helvetica', 'normal')
+	pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
+	pdf.text('•', xOffset, yPos)
+	xOffset += 6
+	
+	pdf.setFont('helvetica', 'bold')
+	addLink('FreeCodeCamp', contact.links.free_code_camp, 9.5, xOffset)
+	yPos += 9
 
 	// === PROFESSIONAL SUMMARY ===
 	addSectionHeader('PROFESSIONAL SUMMARY')
 	addTxt(cvData.executive_summary, 9.5, false, 0)
-	yPos += 3
+	yPos += 4
 
-	// === CORE COMPETENCIES ===
+	// === CORE COMPETENCIES - Make this stand out! ===
 	addSectionHeader('CORE COMPETENCIES & TECHNICAL SKILLS')
 	const comp = cvData.core_competencies_technical_acumen
 	
 	// Group skills by proficiency for better readability
-	const excellentSkills = comp.skills.filter(s => s.proficiency === 'Excellent').map(s => s.skill)
-	const proficientSkills = comp.skills.filter(s => s.proficiency === 'Proficient').map(s => s.skill)
-	const experiencedSkills = comp.skills.filter(s => s.proficiency === 'Experienced').map(s => s.skill)
+	const excellentSkills = comp.skills.filter((s: any) => s.proficiency === 'Excellent').map((s: any) => s.skill)
+	const proficientSkills = comp.skills.filter((s: any) => s.proficiency === 'Proficient').map((s: any) => s.skill)
+	const experiencedSkills = comp.skills.filter((s: any) => s.proficiency === 'Experienced').map((s: any) => s.skill)
 	
+	// Expert Level - Most prominent
 	if (excellentSkills.length > 0) {
-		addTxt(`Expert Level: ${excellentSkills.join(' • ')}`, 9, true, 0)
+		pdf.setFontSize(9.5)
+		pdf.setFont('helvetica', 'bold')
+		pdf.setTextColor(colors.accent[0], colors.accent[1], colors.accent[2])
+		pdf.text('⭐ Expert Level:', margin, yPos)
+		yPos += 4
+		pdf.setFont('helvetica', 'bold')
+		pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
+		addTxt(excellentSkills.join(' • '), 9.5, true, 0)
+		yPos += 1
 	}
+	
+	// Proficient - Second tier
 	if (proficientSkills.length > 0) {
-		addTxt(`Proficient: ${proficientSkills.join(' • ')}`, 9, false, 0)
+		pdf.setFontSize(9.5)
+		pdf.setFont('helvetica', 'bold')
+		pdf.setTextColor(colors.primary[0], colors.primary[1], colors.primary[2])
+		pdf.text('✓ Proficient:', margin, yPos)
+		yPos += 4
+		pdf.setFont('helvetica', 'normal')
+		pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
+		addTxt(proficientSkills.join(' • '), 9.5, false, 0)
+		yPos += 1
 	}
+	
+	// Experienced - Third tier
 	if (experiencedSkills.length > 0) {
-		addTxt(`Experienced: ${experiencedSkills.join(' • ')}`, 9, false, 0)
+		pdf.setFontSize(9.5)
+		pdf.setFont('helvetica', 'bold')
+		pdf.setTextColor(colors.primary[0], colors.primary[1], colors.primary[2])
+		pdf.text('◆ Experienced:', margin, yPos)
+		yPos += 4
+		pdf.setFont('helvetica', 'normal')
+		pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
+		addTxt(experiencedSkills.join(' • '), 9.5, false, 0)
 	}
-	yPos += 3
+	yPos += 4
 
 	// === PROFESSIONAL EXPERIENCE ===
 	addSectionHeader('PROFESSIONAL EXPERIENCE')
@@ -151,82 +196,115 @@ export async function generateCleanPDF(cvData: CVData) {
 	cvData.professional_experience.forEach((exp: ProfessionalExperience, idx: number) => {
 		checkPage()
 		
-		// Company name and title
-		pdf.setFontSize(10.5)
+		// Company name - larger and more prominent
+		pdf.setFontSize(11)
 		pdf.setFont('helvetica', 'bold')
 		pdf.setTextColor(colors.dark[0], colors.dark[1], colors.dark[2])
 		pdf.text(exp.company_name, margin, yPos)
 		yPos += 5
 		
-		// Position title(s)
-		pdf.setFontSize(10)
+		// Position title(s) - with accent color for emphasis
+		pdf.setFontSize(10.5)
 		pdf.setFont('helvetica', 'bold')
-		pdf.setTextColor(colors.primary[0], colors.primary[1], colors.primary[2])
+		pdf.setTextColor(colors.accent[0], colors.accent[1], colors.accent[2])
 		pdf.text(exp.titles.join(' / '), margin, yPos)
 		
-		// Dates - right aligned
-		pdf.setFont('helvetica', 'italic')
-		pdf.setTextColor(colors.lightText[0], colors.lightText[1], colors.lightText[2])
+		// Dates - right aligned and more prominent
+		pdf.setFont('helvetica', 'bold')
+		pdf.setFontSize(9.5)
+		pdf.setTextColor(colors.primary[0], colors.primary[1], colors.primary[2])
 		const dateWidth = pdf.getTextWidth(exp.dates_tenure)
 		pdf.text(exp.dates_tenure, pageWidth - margin - dateWidth, yPos)
-		yPos += 5
+		yPos += 5.5
 		
-		// Key achievements - only show top achievements, make them impactful
+		// Key achievements - only show top 4, make them powerful
 		const topAch = exp.key_responsibilities_achievements.slice(0, 4)
 		topAch.forEach((ach: string) => {
 			checkPage()
-			pdf.setFontSize(9)
+			pdf.setFontSize(9.5)
 			pdf.setFont('helvetica', 'normal')
 			pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
-			const bullet = '•'
+			const bullet = '▸'
+			pdf.setFont('helvetica', 'bold')
 			pdf.text(bullet, margin + 2, yPos)
+			pdf.setFont('helvetica', 'normal')
 			const lines = pdf.splitTextToSize(ach, contentWidth - 8)
 			pdf.text(lines, margin + 6, yPos)
-			yPos += lines.length * 9 * 0.35 + 2
+			yPos += lines.length * 9.5 * 0.35 + 2.5
 		})
 		
-		yPos += 2
+		yPos += 2.5
 	})
 
 	// === KEY PROJECTS ===
 	if (yPos < pageHeight - 60) {
 		addSectionHeader('KEY PROJECTS & OPEN SOURCE CONTRIBUTIONS')
 		
-		// Internal Projects
-		const projects = cvData.key_projects_open_source_contributions.connexcs_internal_projects.slice(0, 3)
-		projects.forEach((proj: Project) => {
+		// All projects in a flat structure with tags for differentiation
+		const projects = cvData.key_projects_open_source_contributions.projects || []
+		projects.forEach((proj: any) => {
 			checkPage()
-			pdf.setFontSize(10)
+			pdf.setFontSize(10.5)
 			pdf.setFont('helvetica', 'bold')
 			pdf.setTextColor(colors.primary[0], colors.primary[1], colors.primary[2])
-			pdf.text(proj.name, margin, yPos)
+			
+			// Project name with clickable link
+			if (proj.url) {
+				addLink(proj.name, proj.url, 10.5, margin)
+			} else {
+				pdf.text(proj.name, margin, yPos)
+			}
 			yPos += 4
 			
+			// NPM link if available (in addition to GitHub)
+			if (proj.npm) {
+				pdf.setFontSize(8.5)
+				pdf.setFont('helvetica', 'italic')
+				pdf.setTextColor(colors.primary[0], colors.primary[1], colors.primary[2])
+				addLink('📦 NPM Package', proj.npm, 8.5, margin + 2)
+				yPos += 3.5
+			}
+			
+			// Tags - make them prominent
+			if (proj.tags && proj.tags.length > 0) {
+				pdf.setFontSize(8.5)
+				pdf.setFont('helvetica', 'bold')
+				pdf.setTextColor(colors.accent[0], colors.accent[1], colors.accent[2])
+				const tags = proj.tags.join(' • ')
+				pdf.text(`[${tags}]`, margin + 2, yPos)
+				yPos += 4
+			}
+			
+			// Description
 			pdf.setFontSize(9)
 			pdf.setFont('helvetica', 'normal')
 			pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
 			const lines = pdf.splitTextToSize(proj.description, contentWidth - 4)
 			pdf.text(lines, margin + 2, yPos)
 			yPos += lines.length * 9 * 0.35 + 3
+			
+			// Technologies
+			if (proj.technologies && proj.technologies.length > 0) {
+				pdf.setFontSize(8.5)
+				pdf.setFont('helvetica', 'italic')
+				pdf.setTextColor(colors.lightText[0], colors.lightText[1], colors.lightText[2])
+				pdf.text(`Tech: ${proj.technologies.join(', ')}`, margin + 2, yPos)
+				yPos += 5
+			}
 		})
-		
-		// Open Source
-		const opensource = cvData.key_projects_open_source_contributions.open_source_contributions[0]
-		if (opensource) {
-			checkPage()
-			pdf.setFontSize(10)
-			pdf.setFont('helvetica', 'bold')
-			pdf.setTextColor(colors.primary[0], colors.primary[1], colors.primary[2])
-			pdf.text(opensource.project_name, margin, yPos)
+	}
+			}
 			yPos += 4
 			
+			// Role or description
 			pdf.setFontSize(9)
 			pdf.setFont('helvetica', 'normal')
 			pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
-			const lines = pdf.splitTextToSize(opensource.role_impact, contentWidth - 4)
+			const content = proj.role_impact || proj.description
+			const lines = pdf.splitTextToSize(content, contentWidth - 4)
 			pdf.text(lines, margin + 2, yPos)
 			yPos += lines.length * 9 * 0.35 + 3
-		}
+		})
 	}
 
 	// === EDUCATION ===

@@ -113,48 +113,36 @@
     }
   ],
   "key_projects_open_source_contributions": {
-    "connexcs_internal_projects": [
+    "projects": [
       {
-        "name": "Call SDP Manipulation Software",
-        "description": "Developed a critical software solution for manipulating Session Description Protocol (SDP) for SIP calls, streamlining complex call processing and potentially reducing manual configuration time.",
-        "technologies": ["Node.js", "TypeScript", "Kamailio (Implied by SIP context)"]
+        "name": "Mulawo - AI Legal Assistant",
+        "url": "https://mulawo.com/",
+        "description": "Proprietary AI-powered legal assistant specialized in Zambian law. Architected and deployed complete end-to-end solution including data crawling, cleaning, and preprocessing to create high-quality RAG (Retrieval-Augmented Generation) service. Implements intelligent citation retrieval and document linking. Sole developer managing all aspects including infrastructure, hosting, SEO optimization, customer acquisition, and marketing strategy.",
+        "technologies": ["AI/ML", "RAG", "Data Engineering", "Full-Stack Development", "SEO", "Cloud Hosting"],
+        "tags": ["Proprietary", "Entrepreneurship", "AI", "SaaS", "Production"]
       },
       {
-        "name": "Browser-based Database Management Software",
-        "description": "Engineered a sophisticated database management application accessible directly in the browser, leveraging WebAssembly (WASM) for high performance and efficiency.",
-        "technologies": ["WASM", "Vue.js (Implied by frontend context)", "Node.js (Implied by backend context)"]
+        "name": "CaxhCipher - Encryption Library",
+        "url": "https://github.com/cacious7/caxhcipher",
+        "npm": "https://www.npmjs.com/package/caxhcipher",
+        "description": "Open-source encryption library published on NPM, providing secure cryptographic utilities for JavaScript/TypeScript applications. Demonstrates expertise in security, cryptography, and package distribution.",
+        "technologies": ["TypeScript", "Cryptography", "NPM", "Node.js"],
+        "tags": ["Open Source", "NPM Package", "Security", "MIT License"]
       },
       {
-        "name": "IDE for App Creation/Extensions",
-        "description": "Built an integrated development environment that empowers users to create applications and extensions utilizing ConnexCS resources, fostering an ecosystem of internal innovation.",
-        "technologies": ["Vue.js (Implied by frontend context)", "Node.js (Implied by backend context)", "Docker (Possibly for sandboxing extensions)"]
+        "name": "connexcs/cxAMQP",
+        "url": "https://github.com/connexcs/cxAMQP",
+        "npm": "https://www.npmjs.com/package/@connex/amqp",
+        "description": "Key contributor responsible for converting the project to TypeScript, implementing unit testing infrastructure using Vitest, and maintaining stringent coding standards. Enhanced code robustness, maintainability, and test coverage for this critical AMQP messaging library.",
+        "technologies": ["TypeScript", "Vitest", "Node.js", "AMQP", "Testing"],
+        "tags": ["Open Source", "NPM Package", "TypeScript Migration", "Testing", "MIT License"]
       },
       {
-        "name": "Drag and Drop Call Flow Builder",
-        "description": "Created an intuitive drag-and-drop interface for building call flows, significantly simplifying a complex operational task and improving user efficiency.",
-        "technologies": ["Vue.js", "TypeScript", "Node.js"]
-      },
-      {
-        "name": "Service Workers Implementation",
-        "description": "Successfully integrated Service Workers into major web applications, enhancing user experience through improved performance and offline capabilities.",
-        "technologies": ["JavaScript", "Service Workers API"]
-      }
-    ],
-    "open_source_contributions": [
-      {
-        "project_name": "connexcs/cxAMQP",
-        "role_impact": "Key contributor responsible for converting the project to TypeScript, implementing the unit testing infrastructure using Vitest, and maintaining stringent coding standards. Enhanced code robustness, maintainability, and test coverage for a critical open-source component.",
-        "technologies": ["TypeScript", "Vitest", "Node.js"]
-      },
-      {
-        "project_name": "FreeCodeCamp",
-        "role_impact": "Previously contributed by answering questions, demonstrating active community engagement, mentorship, and a willingness to share knowledge.",
-        "technologies": ["Community Support", "Mentorship"]
-      },
-      {
-        "project_name": "CodePen Projects",
-        "url": "https://codepen.io/cacious7",
-        "description": "Showcases early, beginner-level projects (e.g., Wiki Search), illustrating a foundational learning journey and an early passion for coding and continuous self-improvement."
+        "name": "Wikipedia Viewer",
+        "url": "https://codepen.io/cacious7/full/ypYZpr",
+        "description": "Interactive Wikipedia search application demonstrating clean UI/UX design and API integration skills.",
+        "technologies": ["JavaScript", "HTML5", "CSS3", "API Integration"],
+        "tags": ["Open Source", "Web App", "API Integration", "MIT License"]
       }
     ]
   },

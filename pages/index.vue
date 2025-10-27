@@ -10,19 +10,48 @@
 			<div class="container">
 				<h2 class="section-title">
 					<q-icon name="mdi-rocket-launch" color="primary" />
-					Key Projects
+					Key Projects & Open Source
 				</h2>
 
+				<h3 class="subsection-title">Personal Projects</h3>
 				<div class="projects-grid">
 					<q-card
-						v-for="(project, index) in projects.connexcs_internal_projects"
+						v-for="(project, index) in projects.personal_projects"
 						:key="index"
 						flat
 						bordered
+						class="personal-project-card"
 					>
 						<q-card-section>
-							<h3 class="project-title">{{ project.name }}</h3>
+							<div class="project-header">
+								<h3 class="project-title">
+									<a v-if="project.url" :href="project.url" target="_blank" rel="noopener noreferrer">
+										{{ project.name }}
+										<q-icon name="mdi-open-in-new" size="xs" />
+									</a>
+									<span v-else>{{ project.name }}</span>
+								</h3>
+								<div v-if="project.highlights" class="project-badges">
+									<q-chip
+										v-for="(highlight, idx) in project.highlights"
+										:key="idx"
+										size="sm"
+										color="accent"
+										text-color="white"
+									>
+										{{ highlight }}
+									</q-chip>
+								</div>
+							</div>
 							<p class="project-description">{{ project.description }}</p>
+							<div v-if="project.technologies" class="project-tech">
+								<SkillTag
+									v-for="(tech, idx) in project.technologies"
+									:key="idx"
+									:skill="tech"
+									outline
+								/>
+							</div>
 						</q-card-section>
 					</q-card>
 				</div>
@@ -36,13 +65,21 @@
 						bordered
 					>
 						<q-card-section>
-							<h3 class="project-title">{{ contribution.project_name }}</h3>
-							<p class="project-description">{{ contribution.role_impact }}</p>
-							<div v-if="contribution.url" class="project-link">
-								<a :href="contribution.url" target="_blank" rel="noopener noreferrer">
-									<q-icon name="mdi-link" />
-									View Project
+							<h3 class="project-title">
+								<a v-if="contribution.url" :href="contribution.url" target="_blank" rel="noopener noreferrer">
+									{{ contribution.project_name }}
+									<q-icon name="mdi-open-in-new" size="xs" />
 								</a>
+								<span v-else>{{ contribution.project_name }}</span>
+							</h3>
+							<p class="project-description">{{ contribution.role_impact || contribution.description }}</p>
+							<div v-if="contribution.technologies" class="project-tech">
+								<SkillTag
+									v-for="(tech, idx) in contribution.technologies"
+									:key="idx"
+									:skill="tech"
+									outline
+								/>
 							</div>
 						</q-card-section>
 					</q-card>
@@ -186,6 +223,35 @@
 		font-weight: 600;
 		color: var(--primary-color);
 		margin-bottom: 0.75rem;
+	}
+
+	.project-title a {
+		color: var(--primary-color);
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.project-title a:hover {
+		text-decoration: underline;
+	}
+
+	.project-header {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.project-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.personal-project-card {
+		border-left: 3px solid var(--accent-color);
 	}
 
 	.project-description {
