@@ -1,4 +1,4 @@
-import type { CVData } from '~/types/cv'
+import type { CVData, ProfessionalExperience, FormalEducation, Project } from '~/types/cv'
 
 export async function generateCleanPDF(cvData: CVData) {
 	// Dynamic import to avoid SSR issues
@@ -55,36 +55,24 @@ export async function generateCleanPDF(cvData: CVData) {
 	addTxt(cvData.executive_summary, 9, false)
 	yPos += 3
 
-	// Core Competencies
+	// Core Skills
 	addTxt('CORE COMPETENCIES', 12, true)
 	const comp = cvData.core_competencies_technical_acumen
 	
-	const getSkills = (skillArr: Array<{ skill: string; proficiency: string }>) => {
-		return skillArr
-			.filter(s => ['Proficient', 'Excellent', 'Experienced'].includes(s.proficiency))
-			.map(s => s.skill)
-			.slice(0, 8)
-			.join(', ')
+	const topSkills = comp.skills
+		.filter(s => ['Proficient', 'Excellent', 'Experienced'].includes(s.proficiency))
+		.map(s => s.skill)
+		.slice(0, 20)
+		.join(', ')
+	
+	if (topSkills) {
+		addTxt(topSkills, 9, false, 5)
 	}
 
-	const langs = getSkills(comp.programming_languages)
-	if (langs) addTxt(`Languages: ${langs}`, 9, false)
-
-	const frameworks = getSkills(comp.front_end_frameworks)
-	if (frameworks) addTxt(`Frameworks: ${frameworks}`, 9, false)
-
-	const backend = getSkills(comp.back_end_technologies)
-	if (backend) addTxt(`Backend: ${backend}`, 9, false)
-
-	const tools = getSkills(comp.tools_dev_ops)
-	if (tools) addTxt(`Tools: ${tools}`, 9, false)
-
-	yPos += 3
-
-	// Professional Experience
+	yPos += 3	// Professional Experience
 	addTxt('PROFESSIONAL EXPERIENCE', 12, true)
 	
-	cvData.professional_experience.forEach((exp, idx) => {
+	cvData.professional_experience.forEach((exp: ProfessionalExperience, idx: number) => {
 		if (idx > 0) yPos += 2
 		
 		addTxt(exp.company_name, 11, true)
@@ -95,7 +83,7 @@ export async function generateCleanPDF(cvData: CVData) {
 		yPos += 1
 		
 		const topAch = exp.key_responsibilities_achievements.slice(0, 5)
-		topAch.forEach(ach => {
+		topAch.forEach((ach: string) => {
 			const shortAch = ach.length > 200 ? ach.substring(0, 197) + '...' : ach
 			addTxt(`• ${shortAch}`, 9, false, 3)
 		})
@@ -111,7 +99,7 @@ export async function generateCleanPDF(cvData: CVData) {
 		yPos += 3
 		addTxt('KEY PROJECTS', 12, true)
 		const projects = cvData.key_projects_open_source_contributions.connexcs_internal_projects
-		projects.slice(0, 3).forEach(proj => {
+		projects.slice(0, 3).forEach((proj: Project) => {
 			if (yPos < pageHeight - margin - 15) {
 				addTxt(proj.name, 10, true)
 				yPos -= 2
@@ -125,7 +113,7 @@ export async function generateCleanPDF(cvData: CVData) {
 	if (yPos < pageHeight - 30) {
 		yPos += 3
 		addTxt('EDUCATION', 12, true)
-		cvData.education_continuous_learning.formal_education.forEach(edu => {
+		cvData.education_continuous_learning.formal_education.forEach((edu: FormalEducation) => {
 			if (yPos < pageHeight - margin - 10) {
 				const eduLine = `${edu.institution} - ${edu.degree_course || 'Computer Science'}`
 				addTxt(eduLine, 9, false)
