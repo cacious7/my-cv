@@ -107,16 +107,48 @@ const emit = defineEmits<Emits>()
 
 ## CSS/Styling Standards
 
+### Color Palette
+Use the following color theme throughout the application:
+
+**Primary Colors:**
+- **Pink/Rose**: `#F2668B` - For accents and highlights
+- **Dark Teal**: `#025E73` - Primary brand color
+- **Deep Dark**: `#011F26` - Dark backgrounds and text
+- **Medium Teal**: `#026873` - Secondary elements
+- **Bright Teal**: `#03A688` - Success states and positive actions
+
+**CSS Variables (define in main.css):**
+```css
+:root {
+	--color-primary: #025E73;
+	--color-secondary: #03A688;
+	--color-accent: #F2668B;
+	--color-dark: #011F26;
+	--color-medium-teal: #026873;
+	--color-success: #03A688;
+	--color-highlight: #F2668B;
+}
+```
+
+**RGBA Equivalents:**
+- Pink: `rgba(242, 101, 139, 1)`
+- Dark Teal: `rgba(2, 94, 114, 1)`
+- Deep Dark: `rgba(0, 31, 38, 1)`
+- Medium Teal: `rgba(2, 103, 114, 1)`
+- Bright Teal: `rgba(3, 165, 135, 1)`
+
 ### Quasar Components
 - Prefer Quasar components over custom HTML elements
 - Use Quasar's utility classes when appropriate
 - Maintain consistent spacing using Quasar's spacing system
+- Configure Quasar brand colors to match our color palette
 
 ### Custom Styles
 - Use BEM methodology when needed for clarity
 - Prefer CSS Grid and Flexbox for layouts
-- Use CSS variables for theming
+- Use CSS variables for theming (defined above)
 - Mobile-first media queries
+- Always reference colors via CSS variables, not hard-coded hex values
 
 ### Example
 ```css

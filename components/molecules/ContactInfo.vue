@@ -30,7 +30,6 @@
 				:key="platform"
 				:platform="formatPlatform(platform)"
 				:url="url"
-				:show-label="showLabels"
 			/>
 		</div>
 	</div>
@@ -42,12 +41,9 @@
 
 	interface Props {
 		contactInfo: ContactInformation
-		showLabels?: boolean
 	}
 
-	withDefaults(defineProps<Props>(), {
-		showLabels: false
-	})
+	defineProps<Props>()
 
 	const formatPlatform = (platform: string): string => {
 		const formatted = platform

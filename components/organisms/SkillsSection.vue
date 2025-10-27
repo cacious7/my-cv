@@ -6,80 +6,25 @@
 				Core Competencies & Technical Skills
 			</h2>
 
-			<div class="skills-section__grid">
-				<q-card flat bordered class="skills-section__card">
-					<q-card-section>
-						<SkillsList
-							:skills="competencies.programming_languages"
-							title="Programming Languages"
+			<q-card flat bordered class="skills-section__card">
+				<q-card-section>
+					<div class="skills-section__list">
+						<SkillTag
+							v-for="(skill, index) in competencies.skills"
+							:key="index"
+							:skill="skill.skill"
+							:proficiency="skill.proficiency"
 						/>
-					</q-card-section>
-				</q-card>
-
-				<q-card flat bordered class="skills-section__card">
-					<q-card-section>
-						<SkillsList
-							:skills="competencies.front_end_frameworks"
-							title="Front-End Frameworks"
-						/>
-					</q-card-section>
-				</q-card>
-
-				<q-card flat bordered class="skills-section__card">
-					<q-card-section>
-						<SkillsList
-							:skills="competencies.back_end_technologies"
-							title="Back-End Technologies"
-						/>
-					</q-card-section>
-				</q-card>
-
-				<q-card flat bordered class="skills-section__card">
-					<q-card-section>
-						<SkillsList :skills="competencies.databases" title="Databases" />
-					</q-card-section>
-				</q-card>
-
-				<q-card flat bordered class="skills-section__card">
-					<q-card-section>
-						<SkillsList :skills="competencies.tools_dev_ops" title="Tools & DevOps" />
-					</q-card-section>
-				</q-card>
-
-				<q-card flat bordered class="skills-section__card">
-					<q-card-section>
-						<SkillsList :skills="competencies.testing" title="Testing" />
-					</q-card-section>
-				</q-card>
-
-				<q-card flat bordered class="skills-section__card">
-					<q-card-section>
-						<SkillsList
-							:skills="competencies.emerging_technologies"
-							title="Emerging Technologies"
-						/>
-					</q-card-section>
-				</q-card>
-
-				<q-card flat bordered class="skills-section__card">
-					<q-card-section>
-						<SkillsList :skills="competencies.methodologies" title="Methodologies" />
-					</q-card-section>
-				</q-card>
-
-				<q-card flat bordered class="skills-section__card">
-					<q-card-section>
-						<SkillsList :skills="competencies.debugging" title="Debugging" />
-					</q-card-section>
-				</q-card>
-			</div>
+					</div>
+				</q-card-section>
+			</q-card>
 		</div>
 	</section>
 </template>
 
 <script setup lang="ts">
 	import type { CoreCompetencies } from '~/types/cv'
-	import SkillsList from '~/components/molecules/SkillsList.vue'
+	import SkillTag from '~/components/atoms/SkillTag.vue'
 
 	interface Props {
 		competencies: CoreCompetencies
@@ -104,26 +49,14 @@
 		color: var(--text-color);
 	}
 
-	.skills-section__grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 1rem;
-	}
-
 	.skills-section__card {
 		background: var(--background);
 	}
 
-	@media (min-width: 768px) {
-		.skills-section__grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.skills-section__grid {
-			grid-template-columns: repeat(3, 1fr);
-		}
+	.skills-section__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
 	}
 
 	@media (max-width: 767px) {
@@ -133,6 +66,10 @@
 
 		.skills-section__title {
 			font-size: 1.5rem;
+		}
+
+		.skills-section__list {
+			gap: 0.5rem;
 		}
 	}
 </style>

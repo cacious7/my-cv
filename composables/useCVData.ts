@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue'
-import type { CVData } from '~/types/cv'
+import type { CVData, Skill } from '~/types/cv'
 import cvDataJson from '~/cv_data.json'
 
 export const useCVData = () => {
@@ -16,24 +16,14 @@ export const useCVData = () => {
 
 	const allSkills = computed(() => {
 		const competencies = coreCompetencies.value
-		return [
-			...competencies.programming_languages,
-			...competencies.front_end_frameworks,
-			...competencies.back_end_technologies,
-			...competencies.databases,
-			...competencies.tools_dev_ops,
-			...competencies.testing,
-			...competencies.emerging_technologies,
-			...competencies.methodologies,
-			...competencies.debugging
-		]
+		return competencies.skills
 	})
 
 	const filterSkillsByProficiency = (minProficiency: string) => {
 		const proficiencyLevels = ['Foundational', 'Familiar', 'Exploring', 'Experienced', 'Medium Proficiency', 'Proficient', 'Excellent', 'Strong Values', 'Core Competency']
 		const minIndex = proficiencyLevels.indexOf(minProficiency)
 		
-		return allSkills.value.filter(skill => {
+		return allSkills.value.filter((skill: Skill) => {
 			const skillIndex = proficiencyLevels.indexOf(skill.proficiency)
 			return skillIndex >= minIndex
 		})

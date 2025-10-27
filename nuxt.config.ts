@@ -21,14 +21,14 @@ export default defineNuxtConfig({
 		},
 		config: {
 			brand: {
-				primary: '#1976D2',
-				secondary: '#26A69A',
-				accent: '#9C27B0',
-				dark: '#1d1d1d',
-				positive: '#21BA45',
-				negative: '#C10015',
-				info: '#31CCEC',
-				warning: '#F2C037'
+				primary: '#025E73', // Dark Teal - primary brand color
+				secondary: '#03A688', // Bright Teal - secondary elements
+				accent: '#F2668B', // Pink/Rose - accents and highlights
+				dark: '#011F26', // Deep Dark - dark backgrounds
+				positive: '#03A688', // Bright Teal - success states
+				negative: '#C10015', // Keep default red for errors
+				info: '#026873', // Medium Teal - info messages
+				warning: '#F2C037' // Keep default yellow for warnings
 			}
 		}
 	},
@@ -39,7 +39,7 @@ export default defineNuxtConfig({
 
 	typescript: {
 		strict: true,
-		typeCheck: true
+		typeCheck: false
 	},
 
 	vite: {

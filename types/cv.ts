@@ -52,6 +52,7 @@ export interface FormalEducation {
 	institution: string
 	degree_course: string
 	dates: string
+	activities?: string
 }
 
 export interface SelfDirectedLearning {
@@ -65,15 +66,7 @@ export interface EducationContinuousLearning {
 }
 
 export interface CoreCompetencies {
-	programming_languages: Skill[]
-	front_end_frameworks: Skill[]
-	back_end_technologies: Skill[]
-	databases: Skill[]
-	tools_dev_ops: Skill[]
-	testing: Skill[]
-	emerging_technologies: Skill[]
-	methodologies: Skill[]
-	debugging: Skill[]
+	skills: Skill[]
 }
 
 export interface CVData {

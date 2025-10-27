@@ -15,50 +15,33 @@
     }
   },
   "core_competencies_technical_acumen": {
-    "programming_languages": [
+    "skills": [
       {"skill": "JavaScript (JS)", "proficiency": "Proficient"},
       {"skill": "TypeScript", "proficiency": "Proficient"},
-      {"skill": "SQL", "proficiency": "Proficient"},
-      {"skill": "HTML", "proficiency": "Proficient"},
-      {"skill": "CSS", "proficiency": "Proficient"},
-      {"skill": "Python (Machine Learning)", "proficiency": "Exploring"},
-      {"skill": "PHP (Laravel Framework)", "proficiency": "Exploring"},
-      {"skill": "Java, C, C++ (OOP)", "proficiency": "Foundational"}
-    ],
-    "front_end_frameworks": [
       {"skill": "Vue", "proficiency": "Proficient"},
       {"skill": "Nuxt", "proficiency": "Proficient"},
       {"skill": "React", "proficiency": "Experienced"},
-      {"skill": "Handlebars", "proficiency": "Exploring"}
-    ],
-    "back_end_technologies": [
-      {"skill": "Node.js", "proficiency": "Proficient"}
-    ],
-    "databases": [
-      {"skill": "SQL", "proficiency": "Proficient"}
-    ],
-    "tools_dev_ops": [
+      {"skill": "Node.js", "proficiency": "Proficient"},
+      {"skill": "SQL", "proficiency": "Proficient"},
+      {"skill": "HTML", "proficiency": "Proficient"},
+      {"skill": "CSS", "proficiency": "Proficient"},
       {"skill": "Docker", "proficiency": "Experienced"},
       {"skill": "Make", "proficiency": "Experienced"},
       {"skill": "Devcontainers / Codespaces", "proficiency": "Experienced"},
-      {"skill": "TOML", "proficiency": "Familiar"}
-    ],
-    "testing": [
       {"skill": "Vitest (Unit Tests)", "proficiency": "Medium Proficiency"},
-      {"skill": "Cypress (E2E)", "proficiency": "Medium Proficiency"}
-    ],
-    "emerging_technologies": [
+      {"skill": "Cypress (E2E)", "proficiency": "Medium Proficiency"},
       {"skill": "AI Agent Mastery", "proficiency": "Proficient"},
       {"skill": "WebAssembly (WASM)", "proficiency": "Experienced"},
       {"skill": "Service Workers", "proficiency": "Experienced"},
-      {"skill": "VueFlow", "proficiency": "Familiar"}
-    ],
-    "methodologies": [
+      {"skill": "VueFlow", "proficiency": "Familiar"},
       {"skill": "OOP (Object-Oriented Prog.)", "proficiency": "Strong Values"},
-      {"skill": "Rapid Learning", "proficiency": "Core Competency"}
-    ],
-    "debugging": [
-      {"skill": "Excellent Debugging Skills", "proficiency": "Excellent"}
+      {"skill": "Rapid Learning", "proficiency": "Core Competency"},
+      {"skill": "Excellent Debugging Skills", "proficiency": "Excellent"},
+      {"skill": "Python (Machine Learning)", "proficiency": "Exploring"},
+      {"skill": "PHP (Laravel Framework)", "proficiency": "Exploring"},
+      {"skill": "Java, C, C++ (OOP)", "proficiency": "Foundational"},
+      {"skill": "Handlebars", "proficiency": "Exploring"},
+      {"skill": "TOML", "proficiency": "Familiar"}
     ]
   },
   "professional_experience": [
@@ -154,14 +137,16 @@
   "education_continuous_learning": {
     "formal_education": [
       {
-        "institution": "Wuhan University",
-        "degree_course": "",
-        "dates": "(Dates and specific courses to be added by Cacious Siamunyanga, as LinkedIn was inaccessible)"
+        "institution": "ZICAS",
+        "degree_course": "Bachelor's degree, Computers (Internet Technology and Computing)",
+        "dates": "2019 - 2023",
+        "activities": "Git and Web Development"
       },
       {
-        "institution": "Zicas",
-        "degree_course": "",
-        "dates": "(Dates and specific courses to be added by Cacious Siamunyanga, as LinkedIn was inaccessible)"
+        "institution": "Wuhan University",
+        "degree_course": "Bachelor's Degree, Computer Software Engineering",
+        "dates": "2015 - 2019",
+        "activities": "Activities and societies: Web designing and management @freecodecamp 2016 hack summit Plural Sight Github, Git, Agile Methodologies and +6 skills"
       }
     ],
     "self_directed_learning": [

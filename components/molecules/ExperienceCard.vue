@@ -35,24 +35,11 @@
 				</li>
 			</ul>
 		</q-card-section>
-
-		<q-card-section v-if="experience.technologies_utilized.length > 0">
-			<h4 class="experience-card__section-title">Technologies</h4>
-			<div class="experience-card__technologies">
-				<SkillTag
-					v-for="(tech, index) in experience.technologies_utilized"
-					:key="index"
-					:skill="tech"
-					outline
-				/>
-			</div>
-		</q-card-section>
 	</q-card>
 </template>
 
 <script setup lang="ts">
 	import type { ProfessionalExperience } from '~/types/cv'
-	import SkillTag from '~/components/atoms/SkillTag.vue'
 
 	interface Props {
 		experience: ProfessionalExperience
@@ -108,12 +95,6 @@
 
 	.experience-card__achievements li {
 		margin-bottom: 0.5rem;
-	}
-
-	.experience-card__technologies {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
 	}
 
 	@media (min-width: 768px) {

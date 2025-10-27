@@ -1,14 +1,19 @@
 <template>
-	<a
+	<q-btn
 		:href="url"
 		target="_blank"
 		rel="noopener noreferrer"
+		flat
+		round
+		:icon="icon"
+		:color="color"
+		size="md"
 		class="social-link"
-		:aria-label="`Visit ${platform} profile`"
 	>
-		<q-icon :name="icon" :size="size" :color="color" />
-		<span v-if="showLabel" class="social-link__label">{{ platform }}</span>
-	</a>
+		<q-tooltip :delay="500" anchor="top middle" self="bottom middle">
+			{{ platform }}
+		</q-tooltip>
+	</q-btn>
 </template>
 
 <script setup lang="ts">
@@ -17,23 +22,25 @@
 	interface Props {
 		platform: string
 		url: string
-		size?: string
 		color?: string
 		showLabel?: boolean
 	}
 
 	const props = withDefaults(defineProps<Props>(), {
-		size: 'md',
 		color: 'primary',
 		showLabel: false
 	})
 
 	const icon = computed(() => {
 		const iconMap: Record<string, string> = {
+			'Linkedin': 'mdi-linkedin',
 			'LinkedIn': 'mdi-linkedin',
+			'Github': 'mdi-github',
 			'GitHub': 'mdi-github',
 			'Stack Overflow': 'mdi-stack-overflow',
+			'Free Code Camp': 'mdi-free-code-camp',
 			'FreeCodeCamp': 'mdi-free-code-camp',
+			'Codepen': 'mdi-codepen',
 			'CodePen': 'mdi-codepen',
 			'Email': 'mdi-email',
 			'Phone': 'mdi-phone',
@@ -45,24 +52,10 @@
 
 <style scoped>
 	.social-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		text-decoration: none;
-		transition: transform 0.2s ease;
+		transition: transform 0.2s ease, background-color 0.2s ease;
 	}
 
 	.social-link:hover {
-		transform: translateY(-2px);
-	}
-
-	.social-link__label {
-		font-weight: 500;
-	}
-
-	@media (max-width: 768px) {
-		.social-link__label {
-			display: none;
-		}
+		transform: scale(1.1);
 	}
 </style>

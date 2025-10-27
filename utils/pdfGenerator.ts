@@ -1,7 +1,8 @@
-import jsPDF from 'jspdf'
 import type { CVData } from '~/types/cv'
 
-export function generateCleanPDF(cvData: CVData) {
+export async function generateCleanPDF(cvData: CVData) {
+	// Dynamic import to avoid SSR issues
+	const jsPDF = (await import('jspdf')).default
 	const pdf = new jsPDF({
 		orientation: 'portrait',
 		unit: 'mm',
@@ -135,8 +136,8 @@ export function generateCleanPDF(cvData: CVData) {
 	return pdf
 }
 
-export function downloadPDF(cvData: CVData) {
-	const pdf = generateCleanPDF(cvData)
+export async function downloadPDF(cvData: CVData) {
+	const pdf = await generateCleanPDF(cvData)
 	const filename = `${cvData.contact_information_digital_footprint.full_name.replace(/\s+/g, '_')}_CV.pdf`
 	pdf.save(filename)
 }

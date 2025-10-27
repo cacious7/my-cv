@@ -23,14 +23,6 @@
 						<q-card-section>
 							<h3 class="project-title">{{ project.name }}</h3>
 							<p class="project-description">{{ project.description }}</p>
-							<div class="project-tech">
-								<SkillTag
-									v-for="(tech, techIndex) in project.technologies"
-									:key="techIndex"
-									:skill="tech"
-									outline
-								/>
-							</div>
 						</q-card-section>
 					</q-card>
 				</div>
@@ -51,14 +43,6 @@
 									<q-icon name="mdi-link" />
 									View Project
 								</a>
-							</div>
-							<div class="project-tech">
-								<SkillTag
-									v-for="(tech, techIndex) in contribution.technologies"
-									:key="techIndex"
-									:skill="tech"
-									outline
-								/>
 							</div>
 						</q-card-section>
 					</q-card>
@@ -86,6 +70,10 @@
 								<h4 class="education-institution">{{ edu.institution }}</h4>
 								<p class="education-degree">{{ edu.degree_course }}</p>
 								<p class="education-dates">{{ edu.dates }}</p>
+								<p v-if="edu.activities" class="education-activities">
+									<q-icon name="mdi-star" size="xs" />
+									{{ edu.activities }}
+								</p>
 							</div>
 						</q-card-section>
 					</q-card>
@@ -121,12 +109,10 @@
 <script setup lang="ts">
 	import { computed } from 'vue'
 	import { useCVData } from '~/composables/useCVData'
-	import { generateCleanPDF } from '~/utils/pdfGenerator'
 	import CVHeader from '~/components/organisms/CVHeader.vue'
 	import SummarySection from '~/components/organisms/SummarySection.vue'
 	import SkillsSection from '~/components/organisms/SkillsSection.vue'
 	import ExperienceSection from '~/components/organisms/ExperienceSection.vue'
-	import SkillTag from '~/components/atoms/SkillTag.vue'
 
 	const {
 		cvData,
@@ -146,8 +132,11 @@
 		})
 	})
 
-	const handleDownloadPDF = () => {
-		generateCleanPDF(cvData.value)
+	const handleDownloadPDF = async () => {
+		if (import.meta.client) {
+			const { downloadPDF } = await import('~/utils/pdfGenerator')
+			downloadPDF(cvData.value)
+		}
 	}
 
 	useHead({
@@ -267,6 +256,16 @@
 	.education-dates {
 		color: var(--text-light);
 		font-size: 0.875rem;
+	}
+
+	.education-activities {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--text-color);
+		font-style: italic;
 	}
 
 	.cv-footer {
