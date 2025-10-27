@@ -1,0 +1,9 @@
+{
+  "_hash": "SNQ4GxLbfvJrhXyWPZDxuxbtt2eWeM96UVsoDwnnzho",
+  "project": {
+    "rootDir": "/workspaces/my-cv"
+  },
+  "versions": {
+    "nuxt": "3.19.3"
+  }
+}
