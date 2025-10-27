@@ -32,15 +32,15 @@
 	const chipColor = computed(() => {
 		if (props.proficiency) {
 			const proficiencyMap: Record<string, string> = {
-				'Excellent': 'green',
-				'Proficient': 'blue',
-				'Core Competency': 'purple',
-				'Strong Values': 'deep-purple',
-				'Medium Proficiency': 'cyan',
-				'Experienced': 'teal',
-				'Exploring': 'orange',
-				'Familiar': 'amber',
-				'Foundational': 'grey'
+				'Excellent': 'positive',        // Bright Teal - #03A688
+				'Proficient': 'primary',        // Dark Teal - #025E73
+				'Core Competency': 'accent',    // Pink - #F2668B
+				'Strong Values': 'accent',      // Pink - #F2668B
+				'Medium Proficiency': 'info',   // Medium Teal - #026873
+				'Experienced': 'secondary',     // Bright Teal - #03A688
+				'Exploring': 'warning',         // Keep warning color
+				'Familiar': 'info',             // Medium Teal - #026873
+				'Foundational': 'dark'          // Deep Dark - #011F26
 			}
 			return proficiencyMap[props.proficiency] || props.color
 		}

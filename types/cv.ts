@@ -52,7 +52,6 @@ export interface FormalEducation {
 	institution: string
 	degree_course: string
 	dates: string
-	activities?: string
 }
 
 export interface SelfDirectedLearning {

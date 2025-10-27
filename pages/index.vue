@@ -70,10 +70,6 @@
 								<h4 class="education-institution">{{ edu.institution }}</h4>
 								<p class="education-degree">{{ edu.degree_course }}</p>
 								<p class="education-dates">{{ edu.dates }}</p>
-								<p v-if="edu.activities" class="education-activities">
-									<q-icon name="mdi-star" size="xs" />
-									{{ edu.activities }}
-								</p>
 							</div>
 						</q-card-section>
 					</q-card>
