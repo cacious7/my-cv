@@ -1,7 +1,7 @@
 import jsPDF from 'jspdf'
 import type { CVData } from '~/types/cv'
 
-export const generateCleanPDF = (cvData: CVData) => {
+export function generateCleanPDF(cvData: CVData) {
 	const pdf = new jsPDF({
 		orientation: 'portrait',
 		unit: 'mm',
@@ -12,154 +12,131 @@ export const generateCleanPDF = (cvData: CVData) => {
 	const pageHeight = pdf.internal.pageSize.getHeight()
 	const margin = 15
 	const contentWidth = pageWidth - 2 * margin
-	let yPosition = margin
+	let yPos = margin
 
-	const addText = (
-		text: string,
-		fontSize: number,
-		isBold = false,
-		indent = 0
-	): void => {
-		if (yPosition > pageHeight - margin) {
+	function checkPage() {
+		if (yPos > pageHeight - margin) {
 			pdf.addPage()
-			yPosition = margin
+			yPos = margin
 		}
-
-		pdf.setFontSize(fontSize)
-		pdf.setFont('helvetica', isBold ? 'bold' : 'normal')
-		
-		const lines = pdf.splitTextToSize(text, contentWidth - indent)
-		pdf.text(lines, margin + indent, yPosition)
-		yPosition += lines.length * fontSize * 0.35 + 2
 	}
 
-	const addLine = (): void => {
+	function addTxt(text: string, size: number, bold = false, ind = 0) {
+		checkPage()
+		pdf.setFontSize(size)
+		pdf.setFont('helvetica', bold ? 'bold' : 'normal')
+		const lines = pdf.splitTextToSize(text, contentWidth - ind)
+		pdf.text(lines, margin + ind, yPos)
+		yPos += lines.length * size * 0.35 + 2
+	}
+
+	function addSeparator() {
 		pdf.setDrawColor(200, 200, 200)
-		pdf.line(margin, yPosition, pageWidth - margin, yPosition)
-		yPosition += 3
+		pdf.line(margin, yPos, pageWidth - margin, yPos)
+		yPos += 3
 	}
 
 	// Header
 	const contact = cvData.contact_information_digital_footprint
-	addText(contact.full_name, 16, true)
-	yPosition -= 2
-	addText(contact.professional_title, 11, false)
-	yPosition -= 1
-	addText(
-		`${contact.location} | ${contact.phone_number} | ${contact.email_addresses[0]}`,
-		9,
-		false
-	)
-	addText(
-		`LinkedIn: ${contact.links.linkedin.replace('https://', '')} | GitHub: ${contact.links.github.replace('https://', '')}`,
-		9,
-		false
-	)
-	yPosition += 2
-	addLine()
+	addTxt(contact.full_name, 16, true)
+	yPos -= 2
+	addTxt(contact.professional_title, 11, false)
+	yPos -= 1
+	const contactLine = `${contact.location} | ${contact.phone_number} | ${contact.email_addresses[0]}`
+	addTxt(contactLine, 9, false)
+	const linksLine = `LinkedIn: ${contact.links.linkedin} | GitHub: ${contact.links.github}`
+	addTxt(linksLine, 8, false)
+	addSeparator()
+	yPos += 2
 
 	// Executive Summary
-	addText('EXECUTIVE SUMMARY', 12, true)
-	addText(cvData.executive_summary, 9, false)
-	yPosition += 2
-	addLine()
+	addTxt('EXECUTIVE SUMMARY', 12, true)
+	addTxt(cvData.executive_summary, 9, false)
+	yPos += 3
 
-	// Core Competencies - Compact
-	addText('CORE COMPETENCIES', 12, true)
-	const competencies = cvData.core_competencies_technical_acumen
+	// Core Competencies
+	addTxt('CORE COMPETENCIES', 12, true)
+	const comp = cvData.core_competencies_technical_acumen
 	
-	const formatSkills = (skills: { skill: string; proficiency: string }[]): string => {
-		return skills
-			.filter(s => ['Proficient', 'Excellent', 'Experienced', 'Core Competency', 'Strong Values'].includes(s.proficiency))
+	const getSkills = (skillArr: Array<{ skill: string; proficiency: string }>) => {
+		return skillArr
+			.filter(s => ['Proficient', 'Excellent', 'Experienced'].includes(s.proficiency))
 			.map(s => s.skill)
+			.slice(0, 8)
 			.join(', ')
 	}
 
-	const languages = formatSkills(competencies.programming_languages)
-	if (languages) addText(`Languages: ${languages}`, 9, false)
+	const langs = getSkills(comp.programming_languages)
+	if (langs) addTxt(`Languages: ${langs}`, 9, false)
 
-	const frameworks = formatSkills(competencies.front_end_frameworks)
-	if (frameworks) addText(`Frameworks: ${frameworks}`, 9, false)
+	const frameworks = getSkills(comp.front_end_frameworks)
+	if (frameworks) addTxt(`Frameworks: ${frameworks}`, 9, false)
 
-	const backend = formatSkills(competencies.back_end_technologies)
-	if (backend) addText(`Backend: ${backend}`, 9, false)
+	const backend = getSkills(comp.back_end_technologies)
+	if (backend) addTxt(`Backend: ${backend}`, 9, false)
 
-	const tools = formatSkills(competencies.tools_dev_ops)
-	if (tools) addText(`Tools & DevOps: ${tools}`, 9, false)
+	const tools = getSkills(comp.tools_dev_ops)
+	if (tools) addTxt(`Tools: ${tools}`, 9, false)
 
-	const testing = formatSkills(competencies.testing)
-	if (testing) addText(`Testing: ${testing}`, 9, false)
-
-	const emerging = formatSkills(competencies.emerging_technologies)
-	if (emerging) addText(`Emerging Tech: ${emerging}`, 9, false)
-
-	yPosition += 2
-	addLine()
+	yPos += 3
 
 	// Professional Experience
-	addText('PROFESSIONAL EXPERIENCE', 12, true)
-
-	cvData.professional_experience.forEach((exp, index) => {
-		if (index > 0) yPosition += 2
-
-		addText(`${exp.company_name}`, 11, true)
-		yPosition -= 2
-		addText(`${exp.titles.join(' | ')}`, 10, false)
-		yPosition -= 2
-		addText(exp.dates_tenure, 9, false)
-		yPosition += 1
-
-		// Add only top 5-6 achievements for conciseness
-		const topAchievements = exp.key_responsibilities_achievements.slice(0, 6)
-		topAchievements.forEach(achievement => {
-			if (yPosition > pageHeight - margin - 20) {
-				// Check if we need page break
-				pdf.addPage()
-				yPosition = margin
-			}
-			const shortAchievement = achievement.length > 250 
-				? achievement.substring(0, 247) + '...' 
-				: achievement
-			addText(`• ${shortAchievement}`, 9, false, 0)
+	addTxt('PROFESSIONAL EXPERIENCE', 12, true)
+	
+	cvData.professional_experience.forEach((exp, idx) => {
+		if (idx > 0) yPos += 2
+		
+		addTxt(exp.company_name, 11, true)
+		yPos -= 2
+		addTxt(exp.titles.join(' | '), 10, false)
+		yPos -= 2
+		addTxt(exp.dates_tenure, 9, false)
+		yPos += 1
+		
+		const topAch = exp.key_responsibilities_achievements.slice(0, 5)
+		topAch.forEach(ach => {
+			const shortAch = ach.length > 200 ? ach.substring(0, 197) + '...' : ach
+			addTxt(`• ${shortAch}`, 9, false, 3)
 		})
-
+		
 		if (exp.technologies_utilized.length > 0) {
 			const techs = exp.technologies_utilized.slice(0, 10).join(', ')
-			addText(`Technologies: ${techs}`, 8, false)
+			addTxt(`Technologies: ${techs}`, 8, false)
 		}
 	})
 
-	// Key Projects - Only if space on page 2
-	if (yPosition < pageHeight - 50) {
-		yPosition += 2
-		addLine()
-		addText('KEY PROJECTS', 12, true)
-
-		const topProjects = cvData.key_projects_open_source_contributions.connexcs_internal_projects.slice(0, 3)
-		topProjects.forEach(project => {
-			if (yPosition < pageHeight - margin - 10) {
-				addText(project.name, 10, true)
-				yPosition -= 2
-				const shortDesc = project.description.length > 150 
-					? project.description.substring(0, 147) + '...'
-					: project.description
-				addText(shortDesc, 9, false)
+	// Key Projects
+	if (yPos < pageHeight - 50) {
+		yPos += 3
+		addTxt('KEY PROJECTS', 12, true)
+		const projects = cvData.key_projects_open_source_contributions.connexcs_internal_projects
+		projects.slice(0, 3).forEach(proj => {
+			if (yPos < pageHeight - margin - 15) {
+				addTxt(proj.name, 10, true)
+				yPos -= 2
+				const shortDesc = proj.description.length > 120 ? proj.description.substring(0, 117) + '...' : proj.description
+				addTxt(shortDesc, 9, false)
 			}
 		})
 	}
 
-	// Education - Compact
-	if (yPosition < pageHeight - 30) {
-		yPosition += 2
-		addLine()
-		addText('EDUCATION', 12, true)
+	// Education
+	if (yPos < pageHeight - 30) {
+		yPos += 3
+		addTxt('EDUCATION', 12, true)
 		cvData.education_continuous_learning.formal_education.forEach(edu => {
-			if (yPosition < pageHeight - margin - 10) {
-				addText(`${edu.institution} - ${edu.degree_course || 'Computer Science'}`, 9, false)
+			if (yPos < pageHeight - margin - 10) {
+				const eduLine = `${edu.institution} - ${edu.degree_course || 'Computer Science'}`
+				addTxt(eduLine, 9, false)
 			}
 		})
 	}
 
-	// Save
-	pdf.save(`${contact.full_name.replace(/\s+/g, '_')}_CV.pdf`)
+	return pdf
+}
+
+export function downloadPDF(cvData: CVData) {
+	const pdf = generateCleanPDF(cvData)
+	const filename = `${cvData.contact_information_digital_footprint.full_name.replace(/\s+/g, '_')}_CV.pdf`
+	pdf.save(filename)
 }

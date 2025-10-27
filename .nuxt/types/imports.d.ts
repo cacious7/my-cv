@@ -26,6 +26,7 @@ declare global {
   const definePayloadPlugin: typeof import('../../node_modules/nuxt/dist/app/nuxt').definePayloadPlugin
   const definePayloadReducer: typeof import('../../node_modules/nuxt/dist/app/composables/payload').definePayloadReducer
   const definePayloadReviver: typeof import('../../node_modules/nuxt/dist/app/composables/payload').definePayloadReviver
+  const downloadPDF: typeof import('../../utils/pdfGenerator').downloadPDF
   const effect: typeof import('vue').effect
   const effectScope: typeof import('vue').effectScope
   const generateCleanPDF: typeof import('../../utils/pdfGenerator').generateCleanPDF
@@ -226,6 +227,7 @@ declare module 'vue' {
     readonly definePayloadPlugin: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['definePayloadPlugin']>
     readonly definePayloadReducer: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['definePayloadReducer']>
     readonly definePayloadReviver: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['definePayloadReviver']>
+    readonly downloadPDF: UnwrapRef<typeof import('../../utils/pdfGenerator')['downloadPDF']>
     readonly effect: UnwrapRef<typeof import('vue')['effect']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly generateCleanPDF: UnwrapRef<typeof import('../../utils/pdfGenerator')['generateCleanPDF']>

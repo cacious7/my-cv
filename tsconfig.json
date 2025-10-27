@@ -23,7 +23,7 @@
 		"noEmit": true,
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"types": ["vite/client", "vitest/globals"]
+		"types": ["vite/client", "vitest/globals", "node"]
 	},
 	"include": [
 		"**/*.ts",

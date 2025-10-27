@@ -4,7 +4,7 @@ import { Quasar } from 'quasar'
 import SkillTag from '~/components/atoms/SkillTag.vue'
 
 describe('SkillTag', () => {
-	const createWrapper = (props = {}) => {
+	const createWrapper = (props: { skill: string; proficiency?: string; color?: string; outline?: boolean } = { skill: 'Vue.js' }) => {
 		return mount(SkillTag, {
 			props,
 			global: {
