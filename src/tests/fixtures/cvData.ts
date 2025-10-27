@@ -28,7 +28,19 @@ export const cvDataFixture: CVData = {
 		testing: [{ skill: 'Vitest', proficiency: 'Medium Proficiency' }],
 		emerging_technologies: [{ skill: 'AI', proficiency: 'Exploring' }],
 		methodologies: [{ skill: 'TDD', proficiency: 'Strong Values' }],
-		debugging: [{ skill: 'Debugging', proficiency: 'Excellent' }]
+		debugging: [{ skill: 'Debugging', proficiency: 'Excellent' }],
+		skills: [
+			{ skill: 'JavaScript', proficiency: 'Proficient' },
+			{ skill: 'TypeScript', proficiency: 'Proficient' },
+			{ skill: 'Vue.js', proficiency: 'Excellent' },
+			{ skill: 'Node.js', proficiency: 'Proficient' },
+			{ skill: 'SQL', proficiency: 'Proficient' },
+			{ skill: 'Docker', proficiency: 'Experienced' },
+			{ skill: 'Vitest', proficiency: 'Medium Proficiency' },
+			{ skill: 'AI', proficiency: 'Exploring' },
+			{ skill: 'TDD', proficiency: 'Core Competency' },
+			{ skill: 'Debugging', proficiency: 'Excellent' }
+		]
 	},
 	professional_experience: [
 		{
