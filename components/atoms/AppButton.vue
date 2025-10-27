@@ -40,12 +40,12 @@
 	})
 
 	interface Emits {
-		(e: 'click', event: MouseEvent): void
+		(e: 'click', event: Event): void
 	}
 
 	const emit = defineEmits<Emits>()
 
-	const handleClick = (event: MouseEvent) => {
+	const handleClick = (event: Event) => {
 		if (!props.disable && !props.loading) {
 			emit('click', event)
 		}

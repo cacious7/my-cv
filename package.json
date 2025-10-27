@@ -19,16 +19,17 @@
 	},
 	"dependencies": {
 		"@quasar/extras": "^1.16.12",
+		"html2canvas": "^1.4.1",
+		"jspdf": "^2.5.2",
 		"nuxt": "^3.13.2",
 		"nuxt-quasar-ui": "^2.1.6",
 		"quasar": "^2.16.11",
 		"vue": "^3.5.10",
-		"vue-router": "^4.4.5",
-		"jspdf": "^2.5.2",
-		"html2canvas": "^1.4.1"
+		"vue-router": "^4.4.5"
 	},
 	"devDependencies": {
 		"@nuxt/eslint": "^0.5.7",
+		"@types/node": "^24.9.1",
 		"@typescript-eslint/eslint-plugin": "^8.8.1",
 		"@typescript-eslint/parser": "^8.8.1",
 		"@vitejs/plugin-vue": "^5.1.4",

@@ -1,5 +1,5 @@
 import lang from "quasar/lang/en-US.js"
-import iconSet from "quasar/icon-set/material-icons.js"
+import iconSet from "quasar/icon-set/mdi-v7.js"
 import { Notify,Dialog,Loading } from "quasar"
 
 

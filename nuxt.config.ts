@@ -14,9 +14,10 @@ export default defineNuxtConfig({
 			'Dialog',
 			'Loading'
 		],
+		iconSet: 'mdi-v7',
 		extras: {
 			font: null,
-			fontIcons: ['mdi']
+			fontIcons: ['mdi-v7']
 		},
 		config: {
 			brand: {

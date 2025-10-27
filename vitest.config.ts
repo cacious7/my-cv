@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
-import { fileURLToPath } from 'node:url'
+import { resolve } from 'path'
 
 export default defineConfig({
 	plugins: [vue()],
@@ -19,18 +19,20 @@ export default defineConfig({
 				'nuxt-cv-backup/'
 			],
 			all: true,
-			lines: 80,
-			functions: 80,
-			branches: 75,
-			statements: 80
+			thresholds: {
+				lines: 80,
+				functions: 80,
+				branches: 75,
+				statements: 80
+			}
 		},
 		include: ['src/tests/**/*.test.ts'],
 		setupFiles: ['src/tests/setup.ts']
 	},
 	resolve: {
 		alias: {
-			'~': fileURLToPath(new URL('./', import.meta.url)),
-			'@': fileURLToPath(new URL('./', import.meta.url))
+			'~': resolve(__dirname, './'),
+			'@': resolve(__dirname, './')
 		}
 	}
 })
