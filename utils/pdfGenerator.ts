@@ -161,7 +161,7 @@ export async function generateCleanPDF(cvData: CVData) {
 		pdf.setDrawColor(colors.text[0], colors.text[1], colors.text[2])
 		pdf.setLineWidth(0.5)
 		pdf.line(margin, yPos, margin + titleWidth, yPos)
-		yPos += 5
+		yPos += 4.5  // Reduced spacing after section header
 	}
 
 	const contact = cvData.contact_information_digital_footprint
@@ -231,7 +231,7 @@ export async function generateCleanPDF(cvData: CVData) {
 
 	addSectionHeader('Summary')
 	addTxt(cvData.executive_summary, 10, false, 0, colors.text, 1.6)
-	yPos += 7
+	yPos += 4  // Reduced space before next section
 
 	addSectionHeader('Skills')
 	const comp = cvData.core_competencies_technical_acumen
@@ -244,23 +244,23 @@ export async function generateCleanPDF(cvData: CVData) {
 	pdf.setFont('helvetica', 'bold')
 	pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
 	pdf.text('Soft Skills:', margin, yPos)
-	yPos += 4
+	yPos += 4.5  // Spacing after label
 	pdf.setFontSize(10)
 	pdf.setFont('helvetica', 'normal')
 	const softSkillsList = ['Excellent Debugging', ...softSkills]
 	addTxt(softSkillsList.join(', '), 10, false, 0, colors.text, 1.5)
-	yPos += 4
+	yPos += 5  // More spacing between skill groups
 	
 	pdf.setFontSize(10)
 	pdf.setFont('helvetica', 'bold')
 	pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
 	pdf.text('Technical Skills:', margin, yPos)
-	yPos += 4
+	yPos += 4.5  // Same spacing as soft skills
 	pdf.setFontSize(10)
 	pdf.setFont('helvetica', 'normal')
 	const allTechSkills = [...proficientSkills, ...experiencedSkills]
 	addTxt(allTechSkills.join(', '), 10, false, 0, colors.text, 1.5)
-	yPos += 7
+	yPos += 4  // Reduced spacing before next section
 
 	addSectionHeader('Experience')
 	
@@ -276,21 +276,21 @@ export async function generateCleanPDF(cvData: CVData) {
 		pdf.setFontSize(10)
 		const dateWidth = pdf.getTextWidth(exp.dates_tenure)
 		pdf.text(exp.dates_tenure, pageWidth - margin - dateWidth, yPos)
-		yPos += 4.5
+		yPos += 5  // More space after job title line
 		
 		pdf.setFontSize(10)
 		pdf.setFont('helvetica', 'normal')
 		pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
 		const companyText = `${exp.company_name} - Remote`
 		pdf.text(companyText, margin, yPos)
-		yPos += 5
+		yPos += 5.5  // More space before bullet points
 		
 		const topAch = exp.key_responsibilities_achievements.slice(0, 5)
 		topAch.forEach((ach: string) => {
 			addBulletWithBoldMetrics(ach, 10, 5)
 		})
 		
-		yPos += 6
+		yPos += 4  // Reduced spacing between job entries
 	})
 
 	addSectionHeader('Projects')
