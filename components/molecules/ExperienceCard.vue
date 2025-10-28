@@ -3,13 +3,23 @@
 		<q-card-section>
 			<div class="experience-card__header">
 				<div>
-					<h3 class="experience-card__company">{{ experience.company_name }}</h3>
+					<div class="experience-card__company-row">
+						<h3 class="experience-card__company">{{ experience.company_name }}</h3>
+						<q-chip
+							label="Remote"
+							color="primary"
+							text-color="white"
+							size="sm"
+							icon="mdi-laptop"
+							class="experience-card__remote-chip"
+						/>
+					</div>
 					<div class="experience-card__titles">
 						<q-chip
 							v-for="(title, index) in experience.titles"
 							:key="index"
 							:label="title"
-							color="primary"
+							color="accent"
 							text-color="white"
 							size="sm"
 						/>
@@ -59,17 +69,29 @@
 		gap: 1rem;
 	}
 
+	.experience-card__company-row {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+
 	.experience-card__company {
 		font-size: 1.5rem;
 		font-weight: 600;
 		color: var(--primary-color);
-		margin-bottom: 0.5rem;
+		margin: 0;
+	}
+
+	.experience-card__remote-chip {
+		font-size: 0.75rem;
 	}
 
 	.experience-card__titles {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
+		margin-top: 0.5rem;
 	}
 
 	.experience-card__dates {

@@ -177,19 +177,20 @@ describe('PDF Generator', () => {
 			)
 		})
 
-		it('should include all professional experiences', async () => {
+		it('should include all professional experiences with Remote indicator', async () => {
 			await generateCleanPDF(cvDataFixture)
 			
 			cvDataFixture.professional_experience.forEach(exp => {
+				// Company name should include "– Remote" suffix
 				expect(mockText).toHaveBeenCalledWith(
-					exp.company_name,
+					`${exp.company_name} – Remote`,
 					expect.any(Number),
 					expect.any(Number)
 				)
 			})
 		})
 
-		it('should limit achievements to top 4 per experience', async () => {
+		it('should limit achievements to top 5 per experience', async () => {
 			const cvDataWithManyAchievements: CVData = {
 				...cvDataFixture,
 				professional_experience: [{
@@ -202,7 +203,8 @@ describe('PDF Generator', () => {
 						'Achievement 3',
 						'Achievement 4',
 						'Achievement 5',
-						'Achievement 6'
+						'Achievement 6',
+						'Achievement 7'
 					],
 					technologies_utilized: []
 				}]
@@ -210,9 +212,9 @@ describe('PDF Generator', () => {
 
 			await generateCleanPDF(cvDataWithManyAchievements)
 			
-			// Count bullet points for this company
+			// Count bullet points for this company - should be 5 max
 			const bulletCalls = mockText.mock.calls.filter(call => call[0] === '•')
-			expect(bulletCalls.length).toBeLessThanOrEqual(4)
+			expect(bulletCalls.length).toBeLessThanOrEqual(5)
 		})
 
 		it('should include key projects section', async () => {
@@ -279,13 +281,17 @@ describe('PDF Generator', () => {
 		// Name should be 20pt (clean and professional)
 		expect(mockSetFontSize).toHaveBeenCalledWith(20)
 		
-		// Section headers should be 11pt
+		// Section headers should be 12pt
+		expect(mockSetFontSize).toHaveBeenCalledWith(12)
+		
+		// Job titles should be 11pt
 		expect(mockSetFontSize).toHaveBeenCalledWith(11)
 		
-		// Body text should be around 9-10pt
-		expect(mockSetFontSize).toHaveBeenCalledWith(9)
-		expect(mockSetFontSize).toHaveBeenCalledWith(9.5)
+		// Body text should be 10pt (per CV standards)
 		expect(mockSetFontSize).toHaveBeenCalledWith(10)
+		
+		// Metadata (contact info, dates) should be 9pt
+		expect(mockSetFontSize).toHaveBeenCalledWith(9)
 	})
 
 	it('should use bold font for headings', async () => {
@@ -409,7 +415,7 @@ describe('PDF Generator', () => {
 			// Should maintain order of experiences (most recent first)
 			const firstExp = cvDataFixture.professional_experience[0]
 			expect(mockText).toHaveBeenCalledWith(
-				firstExp.company_name,
+				`${firstExp.company_name} – Remote`,
 				expect.any(Number),
 				expect.any(Number)
 			)

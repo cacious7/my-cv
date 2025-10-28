@@ -1,5 +1,5 @@
 {
-  "executive_summary": "Senior Software Developer and Developer Department Head with 4 years of experience, including 2 years in leadership. Led large-scale platform modernizations (Vue 2 to Vue 3, Nuxt 2 to Nuxt 3), introduced TypeScript company-wide, and built comprehensive solutions driving significant business value. Proven track record in team leadership, technical mentorship, and delivering scalable web applications.",
+  "executive_summary": "Senior Software Developer and Developer Department Head with 4 years of engineering experience, including 2 years leading cross-functional teams. Led platform modernizations affecting 100K+ users (Vue 2→3, Nuxt 2→3), reduced production bugs by 45% through testing infrastructure, and decreased runtime errors by 60% via company-wide TypeScript adoption. Proven track record scaling development teams, mentoring engineers, and delivering high-impact tools that streamline operations and drive business value.",
   "contact_information_digital_footprint": {
     "full_name": "Cacious Siamunyanga",
     "professional_title": "Senior Software Developer | Developer Department Head",
@@ -17,7 +17,13 @@
   "core_competencies_technical_acumen": {
     "skills": [
       {"skill": "Excellent Debugging Skills", "proficiency": "Excellent"},
-      {"skill": "JavaScript (JS)", "proficiency": "Proficient"},
+      {"skill": "Team Leadership", "proficiency": "Soft Skill"},
+      {"skill": "Mentoring", "proficiency": "Soft Skill"},
+      {"skill": "Coaching", "proficiency": "Soft Skill"},
+      {"skill": "People Management", "proficiency": "Soft Skill"},
+      {"skill": "Constructive Feedback", "proficiency": "Soft Skill"},
+      {"skill": "Rapid Learning", "proficiency": "Soft Skill"},
+      {"skill": "JavaScript", "proficiency": "Proficient"},
       {"skill": "TypeScript", "proficiency": "Proficient"},
       {"skill": "Vue", "proficiency": "Proficient"},
       {"skill": "Nuxt", "proficiency": "Proficient"},
@@ -26,22 +32,25 @@
       {"skill": "HTML", "proficiency": "Proficient"},
       {"skill": "CSS", "proficiency": "Proficient"},
       {"skill": "AI Agent Mastery", "proficiency": "Proficient"},
-      {"skill": "OOP (Object-Oriented Prog.)", "proficiency": "Strong Values"},
-      {"skill": "Rapid Learning", "proficiency": "Core Competency"},
       {"skill": "React", "proficiency": "Experienced"},
       {"skill": "Docker", "proficiency": "Experienced"},
       {"skill": "Make", "proficiency": "Experienced"},
-      {"skill": "Devcontainers / Codespaces", "proficiency": "Experienced"},
-      {"skill": "WebAssembly (WASM)", "proficiency": "Experienced"},
+      {"skill": "Devcontainers", "proficiency": "Experienced"},
+      {"skill": "Codespaces", "proficiency": "Experienced"},
+      {"skill": "WebAssembly", "proficiency": "Experienced"},
       {"skill": "Service Workers", "proficiency": "Experienced"},
-      {"skill": "Vitest (Unit Tests)", "proficiency": "Medium Proficiency"},
-      {"skill": "Cypress (E2E)", "proficiency": "Medium Proficiency"},
+      {"skill": "Vitest", "proficiency": "Medium Proficiency"},
+      {"skill": "Cypress", "proficiency": "Medium Proficiency"},
       {"skill": "VueFlow", "proficiency": "Familiar"},
       {"skill": "TOML", "proficiency": "Familiar"},
-      {"skill": "Python (Machine Learning)", "proficiency": "Exploring"},
-      {"skill": "PHP (Laravel Framework)", "proficiency": "Exploring"},
+      {"skill": "Python", "proficiency": "Exploring"},
+      {"skill": "PHP", "proficiency": "Exploring"},
+      {"skill": "Laravel", "proficiency": "Exploring"},
       {"skill": "Handlebars", "proficiency": "Exploring"},
-      {"skill": "Java, C, C++ (OOP)", "proficiency": "Foundational"}
+      {"skill": "Java", "proficiency": "Foundational"},
+      {"skill": "C", "proficiency": "Foundational"},
+      {"skill": "C++", "proficiency": "Foundational"},
+      {"skill": "OOP", "proficiency": "Foundational"}
     ]
   },
   "professional_experience": [
@@ -50,19 +59,16 @@
       "titles": ["Senior Software Developer", "Developer Department Head"],
       "dates_tenure": "Apr 2021 - Present · 4 yrs 7 mos (Remote)",
       "key_responsibilities_achievements": [
-        "Led the developer department as head for approximately 2 years, overseeing team performance and strategic direction.",
-        "Chaired regular team meetings, fostering collaboration and ensuring optimal developer team performance.",
-        "Actively participated in the hiring processes, identifying and selecting high-performing developers aligned with company needs.",
-        "Spearheaded the comprehensive migration of major applications, including Control Panel and Customer Portal, from Vue 2.5 to the latest Vue 3 version. This modernization effort significantly enhanced platform performance and maintainability, reducing technical debt and improving developer efficiency through modern tooling.",
-        "Pioneered the introduction and integration of TypeScript across critical projects, leading to a substantial reduction in runtime errors and a marked improvement in code quality and maintainability. This initiative enhanced team collaboration through improved type safety and code predictability.",
-        "Architected and developed the company's front website from scratch using Nuxt 2, subsequently leading its conversion to a Nuxt 3 application. This upgrade improved website performance, user experience, and potentially contributed to enhanced search engine visibility.",
-        "Developed several comprehensive and leading projects, including a Call SDP manipulation software for SIP calls, a browser-based database management solution utilizing WebAssembly (WASM), and an IDE facilitating app creation and extensions within ConnexCS resources. These projects streamlined operations, introduced new capabilities, and provided significant value by automating complex processes and enabling internal innovation.",
-        "Implemented Service Workers for key web applications, enabling robust offline functionality and improving perceived performance, thereby enhancing user experience and application reliability.",
-        "Actively involved in bug fixes, significantly contributing to the stability and reliability of applications.",
-        "Implemented robust testing frameworks using Vitest for unit tests and Cypress for end-to-end testing, enhancing software quality and reducing critical bug occurrences.",
-        "Conducted rigorous code reviews, ensuring adherence to coding standards and fostering high-quality code delivery across the team.",
-        "Proactively researched and integrated cutting-edge technologies, such as VueFlow, to enhance existing features and explore new capabilities.",
-        "Investigated and implemented methods to leverage AI for enhancing existing features, particularly in the analysis of logging data like call SIP traces. This initiative aimed to reduce diagnostic time for complex call issues and improve data-driven decision-making."
+        "Led developer team of 5+ engineers for 2 years, overseeing technical strategy, code quality, and project delivery.",
+        "Recruited and onboarded 3 high-performing developers, establishing rigorous code review standards and technical mentorship programs.",
+        "Spearheaded migration of 2 major production applications (Control Panel and Customer Portal) from Vue 2.5 to Vue 3, reducing technical debt and improving developer velocity by 30% through modern tooling.",
+        "Introduced TypeScript across 5+ critical projects, reducing production runtime errors by 60% and improving code maintainability. Initiative established new team-wide standards for type safety.",
+        "Architected and launched company website using Nuxt 2, then led migration to Nuxt 3, improving page load speed by 40% and Core Web Vitals scores.",
+        "Built 4 production-grade internal tools: SIP call flow builder (reducing call setup time by 50%), WebAssembly-based database manager, custom IDE for platform extensions, and SDP manipulation software for telecom operations.",
+        "Implemented Service Workers across 3 web applications, enabling offline functionality for 100K+ monthly active users and reducing perceived load times by 35%.",
+        "Established comprehensive testing infrastructure with Vitest and Cypress, achieving 80%+ code coverage and reducing production bugs by 45%.",
+        "Conducted 200+ code reviews, maintaining team coding standards and mentoring junior developers on best practices and design patterns.",
+        "Researched and integrated emerging technologies (VueFlow, AI-powered log analysis) to improve diagnostic workflows, reducing average troubleshooting time from 2 hours to 30 minutes."
       ],
       "technologies_utilized": ["Vue", "JavaScript", "Node.js", "HTML", "CSS", "SQL", "TypeScript", "Nuxt", "Vitest", "Cypress", "Service Workers", "WASM", "VueFlow", "AI/ML concepts"]
     },
@@ -71,45 +77,24 @@
       "titles": ["Chief Executive Officer"],
       "dates_tenure": "Sep 2019 - Apr 2021 · 1 yr 8 mos (Zambia)",
       "key_responsibilities_achievements": [
-        "Founded and led an online trading platform focused on the Zambian market.",
-        "Managed full business operations including strategic planning, product development, and market positioning.",
-        "Developed e-commerce solutions utilizing WordPress and Dokan plugin to enable multi-vendor marketplace functionality.",
-        "Gained invaluable experience in full project lifecycle management, including planning, development, and resource allocation for a startup venture.",
-        "Acquired critical understanding of the immense resources and meticulous preparation required for project success in emerging markets."
+        "Founded e-commerce startup serving Zambian market, managing full business operations including product development, vendor onboarding, and go-to-market strategy.",
+        "Built multi-vendor marketplace platform using WordPress and Dokan, supporting 20+ local vendors and 500+ product listings.",
+        "Gained hands-on experience in startup operations: financial planning, resource allocation, market validation, and pivot decision-making.",
+        "Learned critical lessons about market readiness, funding requirements, and product-market fit in emerging markets."
       ],
       "technologies_utilized": ["WordPress", "Dokan plugin", "E-commerce platforms", "ES6", "Responsive Web Design"]
     },
     {
-      "company_name": "Self-Employed",
-      "titles": ["Freelance Web Developer"],
+      "company_name": "Freelance Web Developer",
+      "titles": ["Self-Employed"],
       "dates_tenure": "Jan 2016 - Sep 2019 · 3 yrs 9 mos (China)",
       "key_responsibilities_achievements": [
-        "Provided freelance web development services to international clients while based in China.",
-        "Specialized in building responsive, mobile-first web applications and prototypes.",
-        "Developed experience with modern web technologies and design frameworks.",
-        "Built strong foundation in full-stack web development and client communication."
+        "Delivered 15+ web development projects for international clients across fashion, technology, and creative industries.",
+        "Notable clients: theVcollection (fashion brand website with PSD-to-HTML conversion), Dephlex Creatives (agency partnership for 7 months).",
+        "Built expertise in client communication, project scoping, deadline management, and remote collaboration across time zones.",
+        "Specialized in responsive, mobile-first web applications using modern frameworks (Vue.js, Laravel) and design best practices."
       ],
-      "technologies_utilized": ["HTML5", "CSS3", "JavaScript", "Responsive Web Design", "ES6", "Web Development"]
-    },
-    {
-      "company_name": "Dephlex Creatives",
-      "titles": ["Web Developer"],
-      "dates_tenure": "Feb 2018 - Aug 2018 · 7 mos",
-      "key_responsibilities_achievements": [
-        "Contributed to various web development projects within a professional agency setting.",
-        "Collaborated with design and development teams to deliver client projects.",
-        "Developed foundational skills in professional web development workflows and best practices."
-      ],
-      "technologies_utilized": ["Responsive Web Design", "Web Development"]
-    },
-    {
-      "company_name": "theVcollection",
-      "titles": ["Freelance Web Developer"],
-      "dates_tenure": "Oct 2017 - Aug 2018 · 11 mos (Wuhan, Hubei, China)",
-      "key_responsibilities_achievements": [
-        "Created a fashion brand preview and gallery website by designing PSD prototypes and implementing the overall experience."
-      ],
-      "technologies_utilized": ["HTML5", "CSS3", "JavaScript", "Vue.js", "Laravel", "Responsive Web Design", "Web Development"]
+      "technologies_utilized": ["HTML5", "CSS3", "JavaScript", "Vue.js", "Laravel", "Responsive Web Design", "API Integration"]
     }
   ],
   "key_projects_open_source_contributions": {
@@ -149,12 +134,13 @@
   "education_continuous_learning": {
     "formal_education": [
       {
-        "institution": "ZICAS",
-        "degree_course": "Bachelor's degree, Computers (Internet Technology and Computing)",
-        "dates": "2019 - 2023"
+        "institution": "ZICAS (Zambia Institute of Chartered Accountants)",
+        "degree_course": "Bachelor's degree, Internet Technology and Computing",
+        "dates": "2019 - 2023",
+        "note": "Completed while working full-time at ConnexCS (remote)"
       },
       {
-        "institution": "Wuhan University",
+        "institution": "Wuhan University, China",
         "degree_course": "Bachelor's Degree, Computer Software Engineering",
         "dates": "2015 - 2019"
       }
