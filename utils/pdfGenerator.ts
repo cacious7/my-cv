@@ -15,13 +15,13 @@ export async function generateCleanPDF(cvData: CVData) {
 	const contentWidth = pageWidth - 2 * margin
 	let yPos = margin
 
-	// Colors using RGB values from our palette
+	// Colors using RGB values - darker for better legibility
 	const colors = {
 		primary: [2, 94, 115],      // #025E73 - Dark Teal
 		accent: [242, 102, 139],    // #F2668B - Pink
-		dark: [1, 31, 38],          // #011F26 - Deep Dark
-		text: [51, 51, 51],         // #333333 - Text
-		lightText: [102, 102, 102]  // #666666 - Light Text
+		dark: [0, 0, 0],            // Black - for maximum readability
+		text: [0, 0, 0],            // Black - for body text (darker than before)
+		lightText: [70, 70, 70]     // Dark gray - for less important text
 	}
 
 	function checkPage() {
@@ -56,17 +56,17 @@ export async function generateCleanPDF(cvData: CVData) {
 
 	function addSectionHeader(title: string) {
 		checkPage()
-		pdf.setFontSize(12)
-		pdf.setFont('helvetica', 'bold')
+		pdf.setFontSize(11)
+		pdf.setFont('helvetica', 'normal')  // Normal weight, not bold
 		pdf.setTextColor(colors.dark[0], colors.dark[1], colors.dark[2])
 		pdf.text(title, margin, yPos)
 		const titleWidth = pdf.getTextWidth(title)
-		yPos += 1
+		yPos += 0.8
 		// Simple underline
 		pdf.setDrawColor(colors.dark[0], colors.dark[1], colors.dark[2])
-		pdf.setLineWidth(0.3)
+		pdf.setLineWidth(0.5)
 		pdf.line(margin, yPos, margin + titleWidth, yPos)
-		yPos += 5
+		yPos += 4.5
 	}
 
 	// === HEADER SECTION ===
@@ -137,71 +137,54 @@ export async function generateCleanPDF(cvData: CVData) {
 	yPos += 7
 
 	// === PROFESSIONAL SUMMARY ===
-	addSectionHeader('PROFESSIONAL SUMMARY')
+	addSectionHeader('Summary')
 	addTxt(cvData.executive_summary, 9.5, false, 0)
-	yPos += 5
+	yPos += 6
 
-	// === CORE COMPETENCIES - Simple and clean ===
-	addSectionHeader('CORE COMPETENCIES & TECHNICAL SKILLS')
+	// === SKILLS ===
+	addSectionHeader('Skills')
 	const comp = cvData.core_competencies_technical_acumen
 	
 	// Group skills by proficiency for better readability
 	const excellentSkills = comp.skills.filter((s: any) => s.proficiency === 'Excellent').map((s: any) => s.skill)
 	const proficientSkills = comp.skills.filter((s: any) => s.proficiency === 'Proficient').map((s: any) => s.skill)
 	const experiencedSkills = comp.skills.filter((s: any) => s.proficiency === 'Experienced').map((s: any) => s.skill)
+	const softSkills = comp.skills.filter((s: any) => s.proficiency === 'Strong Values' || s.proficiency === 'Core Competency').map((s: any) => s.skill)
 	
-	// Expert Level
-	if (excellentSkills.length > 0) {
-		pdf.setFontSize(9.5)
-		pdf.setFont('helvetica', 'bold')
-		pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
-		pdf.text('Expert Level:', margin, yPos)
-		yPos += 3.5
-		pdf.setFont('helvetica', 'normal')
-		addTxt(excellentSkills.join(' • '), 9.5, false, 0)
-		yPos += 0.5
-	}
+	// Soft Skills (including debugging excellence)
+	pdf.setFontSize(10)
+	pdf.setFont('helvetica', 'bold')
+	pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
+	pdf.text('Soft Skills:', margin, yPos)
+	yPos += 3.5
+	pdf.setFontSize(9.5)
+	pdf.setFont('helvetica', 'normal')
+	// Add debugging excellence first, then other soft skills
+	const softSkillsList = ['Excellent Debugging Skills', ...softSkills]
+	addTxt(softSkillsList.join(', '), 9.5, false, 0)
+	yPos += 1
 	
-	// Proficient
-	if (proficientSkills.length > 0) {
-		pdf.setFontSize(9.5)
-		pdf.setFont('helvetica', 'bold')
-		pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
-		pdf.text('Proficient:', margin, yPos)
-		yPos += 3.5
-		pdf.setFont('helvetica', 'normal')
-		addTxt(proficientSkills.join(' • '), 9.5, false, 0)
-		yPos += 0.5
-	}
-	
-	// Experienced
-	if (experiencedSkills.length > 0) {
-		pdf.setFontSize(9.5)
-		pdf.setFont('helvetica', 'bold')
-		pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
-		pdf.text('Experienced:', margin, yPos)
-		yPos += 3.5
-		pdf.setFont('helvetica', 'normal')
-		addTxt(experiencedSkills.join(' • '), 9.5, false, 0)
-	}
+	// Technical Skills (combining proficient and experienced)
+	pdf.setFontSize(10)
+	pdf.setFont('helvetica', 'bold')
+	pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
+	pdf.text('Technical Skills:', margin, yPos)
+	yPos += 3.5
+	pdf.setFontSize(9.5)
+	pdf.setFont('helvetica', 'normal')
+	const allTechSkills = [...proficientSkills, ...experiencedSkills]
+	addTxt(allTechSkills.join(', '), 9.5, false, 0)
 	yPos += 3
 
-	// === PROFESSIONAL EXPERIENCE ===
-	addSectionHeader('PROFESSIONAL EXPERIENCE')
+	// === EXPERIENCE ===
+	addSectionHeader('Experience')
 	
 	cvData.professional_experience.forEach((exp: ProfessionalExperience, idx: number) => {
 		checkPage()
 		
-		// Company name
-		pdf.setFontSize(10.5)
-		pdf.setFont('helvetica', 'bold')
-		pdf.setTextColor(colors.dark[0], colors.dark[1], colors.dark[2])
-		pdf.text(exp.company_name, margin, yPos)
-		yPos += 4.5
-		
-		// Position title(s) and dates on same line
+		// Position title(s) and dates on same line (title is BOLD)
 		pdf.setFontSize(10)
-		pdf.setFont('helvetica', 'normal')
+		pdf.setFont('helvetica', 'bold')
 		pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
 		pdf.text(exp.titles.join(' / '), margin, yPos)
 		
@@ -210,7 +193,14 @@ export async function generateCleanPDF(cvData: CVData) {
 		pdf.setFontSize(10)
 		const dateWidth = pdf.getTextWidth(exp.dates_tenure)
 		pdf.text(exp.dates_tenure, pageWidth - margin - dateWidth, yPos)
-		yPos += 4
+		yPos += 3.5
+		
+		// Company name (subtitle - normal weight, slightly smaller)
+		pdf.setFontSize(9.5)
+		pdf.setFont('helvetica', 'normal')
+		pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2])
+		pdf.text(exp.company_name, margin, yPos)
+		yPos += 3.5
 		
 		// Key achievements - clean bullets
 		const topAch = exp.key_responsibilities_achievements.slice(0, 4)
@@ -228,8 +218,8 @@ export async function generateCleanPDF(cvData: CVData) {
 		yPos += 2
 	})
 
-	// === KEY PROJECTS ===
-	addSectionHeader('KEY PROJECTS & OPEN SOURCE CONTRIBUTIONS')
+	// === PROJECTS ===
+	addSectionHeader('Projects')
 	
 	// All projects in one flat list
 	const projects = cvData.key_projects_open_source_contributions.projects || []
@@ -277,7 +267,7 @@ export async function generateCleanPDF(cvData: CVData) {
 	})
 
 	// === EDUCATION ===
-	addSectionHeader('EDUCATION')
+	addSectionHeader('Education')
 	cvData.education_continuous_learning.formal_education.forEach((edu: FormalEducation) => {
 		checkPage()
 		pdf.setFontSize(10)

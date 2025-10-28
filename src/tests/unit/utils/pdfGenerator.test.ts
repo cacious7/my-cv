@@ -143,7 +143,7 @@ describe('PDF Generator', () => {
 			await generateCleanPDF(cvDataFixture)
 			
 			expect(mockText).toHaveBeenCalledWith(
-				'PROFESSIONAL SUMMARY',
+				'Summary',
 				expect.any(Number),
 				expect.any(Number)
 			)
@@ -153,7 +153,7 @@ describe('PDF Generator', () => {
 			await generateCleanPDF(cvDataFixture)
 			
 			expect(mockText).toHaveBeenCalledWith(
-				'CORE COMPETENCIES & TECHNICAL SKILLS',
+				'Skills',
 				expect.any(Number),
 				expect.any(Number)
 			)
@@ -162,16 +162,16 @@ describe('PDF Generator', () => {
 	it('should group skills by proficiency level', async () => {
 		await generateCleanPDF(cvDataFixture)
 		
-		// Should include proficient skills - check that text() was called with proficiency labels
+		// Should include skill categories - check that text() was called with category labels
 		const allTextCalls = mockText.mock.calls.map(call => call[0]).join(' ')
-		expect(allTextCalls).toMatch(/Proficient:|Expert Level:|Experienced:/)
+		expect(allTextCalls).toMatch(/Soft Skills:|Technical Skills:/)
 	})
 
 	it('should include professional experience section', async () => {
 			await generateCleanPDF(cvDataFixture)
 			
 			expect(mockText).toHaveBeenCalledWith(
-				'PROFESSIONAL EXPERIENCE',
+				'Experience',
 				expect.any(Number),
 				expect.any(Number)
 			)
@@ -219,7 +219,7 @@ describe('PDF Generator', () => {
 			await generateCleanPDF(cvDataFixture)
 			
 			expect(mockText).toHaveBeenCalledWith(
-				'KEY PROJECTS & OPEN SOURCE CONTRIBUTIONS',
+				'Projects',
 				expect.any(Number),
 				expect.any(Number)
 			)
@@ -229,7 +229,7 @@ describe('PDF Generator', () => {
 			await generateCleanPDF(cvDataFixture)
 			
 			expect(mockText).toHaveBeenCalledWith(
-				'EDUCATION',
+				'Education',
 				expect.any(Number),
 				expect.any(Number)
 			)
@@ -238,11 +238,8 @@ describe('PDF Generator', () => {
 		it('should use brand colors for styling', async () => {
 			await generateCleanPDF(cvDataFixture)
 			
-			// Should set text color (used for most content now)
-			expect(mockSetTextColor).toHaveBeenCalledWith(51, 51, 51)
-			
-			// Should set dark color (Deep Dark) for headers
-			expect(mockSetTextColor).toHaveBeenCalledWith(1, 31, 38)
+			// Should set text color to black for maximum readability
+			expect(mockSetTextColor).toHaveBeenCalledWith(0, 0, 0)
 			
 			// Should set draw color for underlines
 			expect(mockSetDrawColor).toHaveBeenCalled()
@@ -282,8 +279,8 @@ describe('PDF Generator', () => {
 		// Name should be 20pt (clean and professional)
 		expect(mockSetFontSize).toHaveBeenCalledWith(20)
 		
-		// Section headers should be 12pt
-		expect(mockSetFontSize).toHaveBeenCalledWith(12)
+		// Section headers should be 11pt
+		expect(mockSetFontSize).toHaveBeenCalledWith(11)
 		
 		// Body text should be around 9-10pt
 		expect(mockSetFontSize).toHaveBeenCalledWith(9)
@@ -355,11 +352,11 @@ describe('PDF Generator', () => {
 			await generateCleanPDF(cvDataFixture)
 			
 			const expectedSections = [
-				'PROFESSIONAL SUMMARY',
-				'CORE COMPETENCIES & TECHNICAL SKILLS',
-				'PROFESSIONAL EXPERIENCE',
-				'KEY PROJECTS & OPEN SOURCE CONTRIBUTIONS',
-				'EDUCATION'
+				'Summary',
+				'Skills',
+				'Experience',
+				'Projects',
+				'Education'
 			]
 
 			expectedSections.forEach(section => {
