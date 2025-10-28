@@ -119,30 +119,30 @@
         "url": "https://mulawo.com/",
         "description": "Proprietary AI-powered legal assistant specialized in Zambian law. Architected and deployed complete end-to-end solution including data crawling, cleaning, and preprocessing to create high-quality RAG (Retrieval-Augmented Generation) service. Implements intelligent citation retrieval and document linking. Sole developer managing all aspects including infrastructure, hosting, SEO optimization, customer acquisition, and marketing strategy.",
         "technologies": ["AI/ML", "RAG", "Data Engineering", "Full-Stack Development", "SEO", "Cloud Hosting"],
-        "tags": ["Proprietary", "Entrepreneurship", "AI", "SaaS", "Production"]
+        "tags": ["Entrepreneurship", "AI", "SaaS", "Proprietary"]
       },
       {
         "name": "CaxhCipher - Encryption Library",
         "url": "https://github.com/cacious7/caxhcipher",
         "npm": "https://www.npmjs.com/package/caxhcipher",
-        "description": "Open-source encryption library published on NPM, providing secure cryptographic utilities for JavaScript/TypeScript applications. Demonstrates expertise in security, cryptography, and package distribution.",
-        "technologies": ["TypeScript", "Cryptography", "NPM", "Node.js"],
-        "tags": ["Open Source", "NPM Package", "Security", "MIT License"]
+        "description": "Encryption library published on NPM, providing secure cryptographic utilities for JavaScript/TypeScript applications. Demonstrates expertise in security, cryptography, and package distribution.",
+        "technologies": ["JavaScript", "Cryptography", "NPM"],
+        "tags": ["Open Source", "NPM Package", "Security"]
       },
       {
         "name": "connexcs/cxAMQP",
         "url": "https://github.com/connexcs/cxAMQP",
-        "npm": "https://www.npmjs.com/package/@connex/amqp",
+        "npm": "https://www.npmjs.com/package/cx-amqp",
         "description": "Key contributor responsible for converting the project to TypeScript, implementing unit testing infrastructure using Vitest, and maintaining stringent coding standards. Enhanced code robustness, maintainability, and test coverage for this critical AMQP messaging library.",
         "technologies": ["TypeScript", "Vitest", "Node.js", "AMQP", "Testing"],
-        "tags": ["Open Source", "NPM Package", "TypeScript Migration", "Testing", "MIT License"]
+        "tags": ["Open Source", "NPM Package", "TypeScript"]
       },
       {
         "name": "Wikipedia Viewer",
         "url": "https://codepen.io/cacious7/full/ypYZpr",
         "description": "Interactive Wikipedia search application demonstrating clean UI/UX design and API integration skills.",
         "technologies": ["JavaScript", "HTML5", "CSS3", "API Integration"],
-        "tags": ["Open Source", "Web App", "API Integration", "MIT License"]
+        "tags": ["Open Source", "Web App"]
       }
     ]
   },

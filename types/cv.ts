@@ -30,22 +30,15 @@ export interface ProfessionalExperience {
 
 export interface Project {
 	name: string
+	url?: string
+	npm?: string
 	description: string
 	technologies: string[]
-	url?: string
-}
-
-export interface OpenSourceContribution {
-	project_name: string
-	role_impact: string
-	technologies: string[]
-	description?: string
-	url?: string
+	tags: string[]
 }
 
 export interface KeyProjects {
-	connexcs_internal_projects: Project[]
-	open_source_contributions: OpenSourceContribution[]
+	projects: Project[]
 }
 
 export interface FormalEducation {

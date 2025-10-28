@@ -11,10 +11,12 @@ const mockSetFont = vi.fn()
 const mockSetTextColor = vi.fn()
 const mockSetFillColor = vi.fn()
 const mockSetDrawColor = vi.fn()
+const mockSetLineWidth = vi.fn()
 const mockText = vi.fn()
 const mockTextWithLink = vi.fn()
 const mockLine = vi.fn()
 const mockRect = vi.fn()
+const mockLink = vi.fn()
 const mockGetTextWidth = vi.fn((text: string) => text.length * 2)
 const mockSplitTextToSize = vi.fn((text: string) => [text])
 const mockGetPageSize = vi.fn(() => ({
@@ -30,10 +32,12 @@ const mockJsPDFInstance = {
 	setTextColor: mockSetTextColor,
 	setFillColor: mockSetFillColor,
 	setDrawColor: mockSetDrawColor,
+	setLineWidth: mockSetLineWidth,
 	text: mockText,
 	textWithLink: mockTextWithLink,
 	line: mockLine,
 	rect: mockRect,
+	link: mockLink,
 	getTextWidth: mockGetTextWidth,
 	splitTextToSize: mockSplitTextToSize,
 	internal: {
@@ -234,23 +238,22 @@ describe('PDF Generator', () => {
 		it('should use brand colors for styling', async () => {
 			await generateCleanPDF(cvDataFixture)
 			
-			// Should set primary color (Dark Teal)
-			expect(mockSetTextColor).toHaveBeenCalledWith(2, 94, 115)
+			// Should set text color (used for most content now)
+			expect(mockSetTextColor).toHaveBeenCalledWith(51, 51, 51)
 			
-			// Should set dark color (Deep Dark)
+			// Should set dark color (Deep Dark) for headers
 			expect(mockSetTextColor).toHaveBeenCalledWith(1, 31, 38)
 			
-			// Should set fill color for section headers
-			expect(mockSetFillColor).toHaveBeenCalledWith(2, 94, 115)
+			// Should set draw color for underlines
+			expect(mockSetDrawColor).toHaveBeenCalled()
 		})
 
-		it('should create section headers with filled rectangles', async () => {
+		it('should create section headers with underlines', async () => {
 			await generateCleanPDF(cvDataFixture)
 			
-			// Should draw filled rectangles for section headers
-			expect(mockRect).toHaveBeenCalled()
-			const rectCall = mockRect.mock.calls[0]
-			expect(rectCall[4]).toBe('F') // 'F' means filled
+			// Should draw underlines for section headers
+			expect(mockLine).toHaveBeenCalled()
+			expect(mockSetLineWidth).toHaveBeenCalled()
 		})
 
 		it('should underline clickable links', async () => {
@@ -276,28 +279,36 @@ describe('PDF Generator', () => {
 	it('should set correct font sizes for different sections', async () => {
 		await generateCleanPDF(cvDataFixture)
 		
-		// Name should be 22pt (updated for better visibility)
-		expect(mockSetFontSize).toHaveBeenCalledWith(22)
+		// Name should be 20pt (clean and professional)
+		expect(mockSetFontSize).toHaveBeenCalledWith(20)
 		
-		// Section headers should be 11pt
-		expect(mockSetFontSize).toHaveBeenCalledWith(11)			// Body text should be around 9-10pt
-			expect(mockSetFontSize).toHaveBeenCalledWith(9)
-			expect(mockSetFontSize).toHaveBeenCalledWith(9.5)
-		})
+		// Section headers should be 12pt
+		expect(mockSetFontSize).toHaveBeenCalledWith(12)
+		
+		// Body text should be around 9-10pt
+		expect(mockSetFontSize).toHaveBeenCalledWith(9)
+		expect(mockSetFontSize).toHaveBeenCalledWith(9.5)
+		expect(mockSetFontSize).toHaveBeenCalledWith(10)
+	})
 
-		it('should use bold font for headings', async () => {
-			await generateCleanPDF(cvDataFixture)
-			
-			expect(mockSetFont).toHaveBeenCalledWith('helvetica', 'bold')
-			expect(mockSetFont).toHaveBeenCalledWith('helvetica', 'normal')
-		})
+	it('should use bold font for headings', async () => {
+		await generateCleanPDF(cvDataFixture)
+		
+		expect(mockSetFont).toHaveBeenCalledWith('helvetica', 'bold')
+		expect(mockSetFont).toHaveBeenCalledWith('helvetica', 'normal')
+	})
 
-		it('should format dates and align them to the right', async () => {
-			await generateCleanPDF(cvDataFixture)
-			
-			// Should use italic font for dates
-			expect(mockSetFont).toHaveBeenCalledWith('helvetica', 'italic')
-		})
+	it('should format dates and align them to the right', async () => {
+		await generateCleanPDF(cvDataFixture)
+		
+		// Dates should be formatted and right-aligned
+		// The mockText should have been called with date strings
+		const textCalls = mockText.mock.calls
+		const hasDateCall = textCalls.some(call => 
+			typeof call[0] === 'string' && call[0].includes('-')
+		)
+		expect(hasDateCall).toBe(true)
+	})
 	})
 
 	describe('downloadPDF', () => {

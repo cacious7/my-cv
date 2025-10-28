@@ -13,14 +13,13 @@
 					Key Projects & Open Source
 				</h2>
 
-				<h3 class="subsection-title">Personal Projects</h3>
 				<div class="projects-grid">
 					<q-card
-						v-for="(project, index) in projects.personal_projects"
+						v-for="(project, index) in projects.projects"
 						:key="index"
 						flat
 						bordered
-						class="personal-project-card"
+						class="project-card"
 					>
 						<q-card-section>
 							<div class="project-header">
@@ -31,15 +30,15 @@
 									</a>
 									<span v-else>{{ project.name }}</span>
 								</h3>
-								<div v-if="project.highlights" class="project-badges">
+								<div v-if="project.tags" class="project-badges">
 									<q-chip
-										v-for="(highlight, idx) in project.highlights"
+										v-for="(tag, idx) in project.tags"
 										:key="idx"
 										size="sm"
-										color="accent"
+										:color="tag.toLowerCase().includes('open source') ? 'positive' : 'accent'"
 										text-color="white"
 									>
-										{{ highlight }}
+										{{ tag }}
 									</q-chip>
 								</div>
 							</div>
@@ -52,34 +51,11 @@
 									outline
 								/>
 							</div>
-						</q-card-section>
-					</q-card>
-				</div>
-
-				<h3 class="subsection-title">Open Source Contributions</h3>
-				<div class="projects-grid">
-					<q-card
-						v-for="(contribution, index) in projects.open_source_contributions"
-						:key="index"
-						flat
-						bordered
-					>
-						<q-card-section>
-							<h3 class="project-title">
-								<a v-if="contribution.url" :href="contribution.url" target="_blank" rel="noopener noreferrer">
-									{{ contribution.project_name }}
-									<q-icon name="mdi-open-in-new" size="xs" />
+							<div v-if="project.npm" class="project-links">
+								<a :href="project.npm" target="_blank" rel="noopener noreferrer" class="npm-link">
+									<q-icon name="mdi-package-variant" />
+									NPM Package
 								</a>
-								<span v-else>{{ contribution.project_name }}</span>
-							</h3>
-							<p class="project-description">{{ contribution.role_impact || contribution.description }}</p>
-							<div v-if="contribution.technologies" class="project-tech">
-								<SkillTag
-									v-for="(tech, idx) in contribution.technologies"
-									:key="idx"
-									:skill="tech"
-									outline
-								/>
 							</div>
 						</q-card-section>
 					</q-card>
@@ -280,6 +256,32 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	.project-links {
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+	}
+
+	.npm-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		color: var(--primary-color);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.9rem;
+		padding: 0.4rem 0.8rem;
+		border-radius: 4px;
+		background: rgba(2, 94, 115, 0.05);
+		transition: all 0.2s ease;
+	}
+
+	.npm-link:hover {
+		background: rgba(2, 94, 115, 0.1);
+		text-decoration: underline;
 	}
 
 	.education-section {
