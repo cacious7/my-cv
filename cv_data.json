@@ -56,7 +56,7 @@
   "professional_experience": [
     {
       "company_name": "Connex Carrier Services Ltd (ConnexCS)",
-      "titles": ["Senior Software Developer", "Developer Department Head"],
+      "titles": ["Senior Software Developer"],
       "dates_tenure": "Apr 2021 - Present · 4 yrs 7 mos (Remote)",
       "key_responsibilities_achievements": [
         "Led developer team of 5+ engineers for 2 years, overseeing technical strategy, code quality, and project delivery.",
@@ -78,9 +78,9 @@
       "dates_tenure": "Sep 2019 - Apr 2021 · 1 yr 8 mos (Zambia)",
       "key_responsibilities_achievements": [
         "Founded e-commerce startup serving Zambian market, managing full business operations including product development, vendor onboarding, and go-to-market strategy.",
-        "Built multi-vendor marketplace platform using WordPress and Dokan, supporting 20+ local vendors and 500+ product listings.",
-        "Gained hands-on experience in startup operations: financial planning, resource allocation, market validation, and pivot decision-making.",
-        "Learned critical lessons about market readiness, funding requirements, and product-market fit in emerging markets."
+        "Built multi-vendor marketplace platform using WordPress and Dokan, creating infrastructure to connect local vendors with customers and enable online commerce in an emerging market.",
+        "Gained hands-on experience in startup operations: financial planning, resource allocation, market validation, and strategic decision-making under resource constraints.",
+        "Learned critical lessons about market readiness, funding requirements, and product-market fit in emerging markets that inform current approach to product development."
       ],
       "technologies_utilized": ["WordPress", "Dokan plugin", "E-commerce platforms", "ES6", "Responsive Web Design"]
     },
@@ -89,10 +89,10 @@
       "titles": ["Self-Employed"],
       "dates_tenure": "Jan 2016 - Sep 2019 · 3 yrs 9 mos (China)",
       "key_responsibilities_achievements": [
-        "Delivered 15+ web development projects for international clients across fashion, technology, and creative industries.",
-        "Notable clients: theVcollection (fashion brand website with PSD-to-HTML conversion), Dephlex Creatives (agency partnership for 7 months).",
-        "Built expertise in client communication, project scoping, deadline management, and remote collaboration across time zones.",
-        "Specialized in responsive, mobile-first web applications using modern frameworks (Vue.js, Laravel) and design best practices."
+        "Delivered web development projects for international clients across fashion, technology, and creative industries, building strong portfolio of production-ready applications.",
+        "Notable clients: theVcollection (fashion brand website with professional PSD-to-HTML conversion), Dephlex Creatives (sustained agency partnership demonstrating reliability and quality).",
+        "Built expertise in client communication, project scoping, deadline management, and remote collaboration across time zones and cultural contexts.",
+        "Specialized in responsive, mobile-first web applications using modern frameworks, ensuring accessibility and optimal user experience across all devices and browsers."
       ],
       "technologies_utilized": ["HTML5", "CSS3", "JavaScript", "Vue.js", "Laravel", "Responsive Web Design", "API Integration"]
     }
@@ -115,7 +115,7 @@
         "tags": ["Open Source", "NPM Package", "Security"]
       },
       {
-        "name": "connexcs/cxAMQP",
+        "name": "Connexcs/cxAMQP",
         "url": "https://github.com/connexcs/cxAMQP",
         "npm": "https://www.npmjs.com/package/cx-amqp",
         "description": "Key contributor responsible for converting the project to TypeScript, implementing unit testing infrastructure using Vitest, and maintaining stringent coding standards. Enhanced code robustness, maintainability, and test coverage for this critical AMQP messaging library.",
