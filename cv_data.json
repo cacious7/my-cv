@@ -1,5 +1,5 @@
 {
-  "executive_summary": "Senior Software Developer and Developer Department Head with 4 years of engineering experience, including 2 years leading cross-functional teams. Led platform modernizations affecting 100K+ users (Vue 2 to 3, Nuxt 2 to 3), reduced production bugs by 45% through testing infrastructure, and decreased runtime errors by 60% via company-wide TypeScript adoption. Proven track record scaling development teams, mentoring engineers, and delivering high-impact tools that streamline operations and drive business value.",
+  "executive_summary": "Senior Software Developer and Developer Department Head with 4 years of engineering experience, including 2 years leading cross-functional teams. Led major platform modernizations (Vue 2 to 3, Nuxt 2 to 3) serving large user bases, established comprehensive testing infrastructure that significantly improved code quality, and drove company-wide TypeScript adoption to enhance code maintainability and reliability. Proven track record scaling development teams, mentoring engineers, and delivering high-impact tools that streamline operations and drive business value.",
   "contact_information_digital_footprint": {
     "full_name": "Cacious Siamunyanga",
     "professional_title": "Senior Software Developer | Developer Department Head",
@@ -61,14 +61,14 @@
       "key_responsibilities_achievements": [
         "Led developer team of 5+ engineers for 2 years, overseeing technical strategy, code quality, and project delivery.",
         "Recruited and onboarded 3 high-performing developers, establishing rigorous code review standards and technical mentorship programs.",
-        "Spearheaded migration of 2 major production applications (Control Panel and Customer Portal) from Vue 2.5 to Vue 3, reducing technical debt and improving developer velocity by 30% through modern tooling.",
-        "Introduced TypeScript across 5+ critical projects, reducing production runtime errors by 60% and improving code maintainability. Initiative established new team-wide standards for type safety.",
-        "Architected and launched company website using Nuxt 2, then led migration to Nuxt 3, improving page load speed by 40% and Core Web Vitals scores.",
-        "Built 4 production-grade internal tools: SIP call flow builder (reducing call setup time by 50%), WebAssembly-based database manager, custom IDE for platform extensions, and SDP manipulation software for telecom operations.",
-        "Implemented Service Workers across 3 web applications, enabling offline functionality for 100K+ monthly active users and reducing perceived load times by 35%.",
-        "Established comprehensive testing infrastructure with Vitest and Cypress, achieving 80%+ code coverage and reducing production bugs by 45%.",
+        "Spearheaded migration of 2 major production applications (Control Panel and Customer Portal) from Vue 2.5 to Vue 3, significantly reducing technical debt and improving developer experience through access to modern tooling and better ecosystem support.",
+        "Introduced TypeScript across 5+ critical projects, substantially reducing production runtime errors and greatly improving code maintainability. Initiative established new team-wide standards for type safety.",
+        "Architected and launched company website using Nuxt 2, then led migration to Nuxt 3, modernizing the technology stack and ensuring long-term maintainability with current framework features and ongoing vendor support.",
+        "Built 4 production-grade internal tools: SIP call flow builder (streamlining complex call setup operations), WebAssembly-based database manager, custom IDE for platform extensions, and SDP manipulation software for telecom operations.",
+        "Implemented Service Workers across 3 web applications, enabling robust offline functionality for large user base and improving application resilience during network interruptions.",
+        "Established comprehensive testing infrastructure with Vitest and Cypress, achieving high code coverage and significantly reducing production bugs through early issue detection.",
         "Conducted 200+ code reviews, maintaining team coding standards and mentoring junior developers on best practices and design patterns.",
-        "Researched and integrated emerging technologies (VueFlow, AI-powered log analysis) to improve diagnostic workflows, reducing average troubleshooting time from 2 hours to 30 minutes."
+        "Researched and integrated emerging technologies (VueFlow, AI-powered log analysis) to improve diagnostic workflows, substantially reducing time required for troubleshooting complex call issues."
       ],
       "technologies_utilized": ["Vue", "JavaScript", "Node.js", "HTML", "CSS", "SQL", "TypeScript", "Nuxt", "Vitest", "Cypress", "Service Workers", "WASM", "VueFlow", "AI/ML concepts"]
     },
@@ -85,13 +85,25 @@
       "technologies_utilized": ["WordPress", "Dokan plugin", "E-commerce platforms", "ES6", "Responsive Web Design"]
     },
     {
-      "company_name": "Freelance Web Developer",
-      "titles": ["Self-Employed"],
-      "dates_tenure": "Jan 2016 - Sep 2019 · 3 yrs 9 mos (China)",
+      "company_name": "Dephlex Creatives",
+      "titles": ["Web Developer"],
+      "dates_tenure": "Feb 2019 - Sep 2019 · 7 mos (China)",
+      "key_responsibilities_achievements": [
+        "Contributed to diverse web development projects across multiple industries including education, fashion, and creative sectors, gaining broad exposure to different business requirements and design approaches.",
+        "Developed professional websites and web applications in fast-paced agency environment, learning to balance quality with tight deadlines and client expectations.",
+        "Collaborated with designers and project managers to translate creative concepts into functional, responsive web experiences that met client specifications.",
+        "Built foundational skills in professional web development workflows, version control, client communication, and delivering production-ready code in team environment."
+      ],
+      "technologies_utilized": ["HTML5", "CSS3", "JavaScript", "jQuery", "Responsive Web Design", "WordPress"]
+    },
+    {
+      "company_name": "Self-Employed",
+      "titles": ["Freelance Web Developer"],
+      "dates_tenure": "Jan 2016 - Feb 2019 · 3 yrs 1 mo (China)",
       "key_responsibilities_achievements": [
         "Delivered web development projects for international clients across fashion, technology, and creative industries, building strong portfolio of production-ready applications.",
-        "Notable clients: theVcollection (fashion brand website with professional PSD-to-HTML conversion), Dephlex Creatives (sustained agency partnership demonstrating reliability and quality).",
-        "Built expertise in client communication, project scoping, deadline management, and remote collaboration across time zones and cultural contexts.",
+        "Notable client: theVcollection (fashion brand website with professional PSD-to-HTML conversion), demonstrating ability to execute pixel-perfect designs.",
+        "Built expertise in independent client communication, project scoping, deadline management, and remote collaboration across time zones and cultural contexts.",
         "Specialized in responsive, mobile-first web applications using modern frameworks, ensuring accessibility and optimal user experience across all devices and browsers."
       ],
       "technologies_utilized": ["HTML5", "CSS3", "JavaScript", "Vue.js", "Laravel", "Responsive Web Design", "API Integration"]

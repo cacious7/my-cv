@@ -73,7 +73,12 @@ export async function generateCleanPDF(cvData: CVData) {
 				/Vue 2\.5 to Vue 3/gi,
 				/Nuxt 2 to Nuxt 3/gi,
 				/TypeScript/gi,
-				/Service Workers/gi
+				/Service Workers/gi,
+				/reducing technical debt and improving developer/gi,
+				/reducing production runtime errors/gi,
+				/Nuxt 2, then led migration to Nuxt 3/gi,
+				/multi-vendor marketplace platform using WordPress and Dokan/gi,
+				/hands-on experience in startup operations/gi,
 			]
 			
 			const segments: Array<{text: string, bold: boolean, start: number, end: number}> = []
@@ -253,7 +258,10 @@ export async function generateCleanPDF(cvData: CVData) {
 	// === EXPERIENCE ===
 	addSectionHeader('Experience')
 	
-	cvData.professional_experience.forEach((exp: ProfessionalExperience, index: number) => {
+	// Only show first 3 experiences in PDF (ConnexCS, Gulait, Dephlex) - skip freelance
+	const experiencesToShow = cvData.professional_experience.slice(0, 3)
+	
+	experiencesToShow.forEach((exp: ProfessionalExperience, index: number) => {
 		checkPageBreak()
 		
 		// Job title and dates on same line
@@ -282,7 +290,7 @@ export async function generateCleanPDF(cvData: CVData) {
 		})
 		
 		// Space between jobs (not after last)
-		if (index < cvData.professional_experience.length - 1) {
+		if (index < experiencesToShow.length - 1) {
 			yPos += spacing.betweenJobs
 		}
 	})
