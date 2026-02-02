@@ -64,16 +64,15 @@
       "dates_tenure": "Apr 2021 - Present · 4 yrs 7 mos (Remote)",
       "key_responsibilities_achievements": [
         "Led developer team of 5+ engineers for 2 years, overseeing technical strategy, code quality, and project delivery.",
+        "Leading MCP (Model Context Protocol) implementation and development process optimization using n8n to automate workflows between ClickUp and GitHub, enabling AI-assisted resolution of routine issues and streamlining CI/CD pipeline.",
+        "Introduced comprehensive testing culture with Vitest (unit testing) and Cypress (E2E testing), significantly improving code reliability and reducing production bugs through systematic early detection.",
+        "Spearheaded migration of 2 major applications from Vue 2.5 to Vue 3, reducing technical debt and improving developer experience through modern tooling.",
+        "Introduced TypeScript across 5+ critical projects, reducing production runtime errors and establishing team-wide standards for type safety.",
+        "Built 4 production-grade internal tools: SIP call flow builder, WebAssembly-based database manager, custom IDE for platform extensions, and SDP manipulation software.",
+        "Architected company website using Nuxt 2, then led migration to Nuxt 3, modernizing the stack and ensuring long-term maintainability.",
         "Recruited and onboarded 3 high-performing developers, establishing rigorous code review standards and technical mentorship programs.",
-        "Leading MCP (Model Context Protocol) implementation and development process optimization using n8n to automate workflows between ClickUp and GitHub, enabling AI-assisted resolution of routine issues and streamlining the CI/CD pipeline.",
-        "Introduced and established comprehensive testing culture with Vitest (unit testing) and Cypress (E2E testing), significantly improving code reliability and reducing production bugs through systematic early detection.",
-        "Spearheaded migration of 2 major production applications (Control Panel and Customer Portal) from Vue 2.5 to Vue 3, significantly reducing technical debt and improving developer experience through access to modern tooling.",
-        "Introduced TypeScript across 5+ critical projects, substantially reducing production runtime errors and establishing team-wide standards for type safety and code maintainability.",
-        "Architected and launched company website using Nuxt 2, then led migration to Nuxt 3, modernizing the technology stack and ensuring long-term maintainability.",
-        "Built 4 production-grade internal tools: SIP call flow builder, WebAssembly-based database manager, custom IDE for platform extensions, and SDP manipulation software for telecom operations.",
-        "Implemented Service Workers across 3 web applications, enabling robust offline functionality and improving application resilience during network interruptions.",
-        "Conducted 200+ code reviews, maintaining team coding standards and mentoring developers on best practices and design patterns.",
-        "Researched and integrated emerging technologies (VueFlow, AI-powered log analysis) to improve diagnostic workflows and reduce troubleshooting time for complex call issues."
+        "Implemented Service Workers across 3 web applications, enabling robust offline functionality and improving application resilience.",
+        "Conducted 200+ code reviews, maintaining team coding standards and mentoring developers on best practices."
       ],
       "technologies_utilized": ["Vue", "JavaScript", "Node.js", "HTML", "CSS", "SQL", "TypeScript", "Nuxt", "Vitest", "Cypress", "Service Workers", "WASM", "VueFlow", "n8n", "MCP", "AI/ML concepts"]
     },
@@ -119,7 +118,7 @@
       {
         "name": "Mulawo - AI Legal Assistant",
         "url": "https://mulawo.com/",
-        "description": "Proprietary AI-powered legal assistant specialized in Zambian law. Architected and deployed complete end-to-end solution including data crawling, cleaning, and preprocessing to create high-quality RAG (Retrieval-Augmented Generation) service. Implements intelligent citation retrieval and document linking. Sole developer managing all aspects including infrastructure, hosting, SEO optimization, customer acquisition, and marketing strategy.",
+        "description": "AI-powered legal assistant for Zambian law. Built complete RAG pipeline including data crawling, preprocessing, and intelligent citation retrieval. Sole developer handling full-stack development, infrastructure, and go-to-market strategy.",
         "technologies": ["AI/ML", "RAG", "Data Engineering", "Full-Stack Development", "SEO", "Cloud Hosting"],
         "tags": ["Entrepreneurship", "AI", "SaaS", "Proprietary"]
       },
@@ -127,7 +126,7 @@
         "name": "CaxhCipher - Encryption Library",
         "url": "https://github.com/cacious7/caxhcipher",
         "npm": "https://www.npmjs.com/package/caxhcipher",
-        "description": "Encryption library published on NPM, providing secure cryptographic utilities for JavaScript/TypeScript applications. Demonstrates expertise in security, cryptography, and package distribution.",
+        "description": "NPM-published encryption library providing secure cryptographic utilities for JavaScript/TypeScript applications.",
         "technologies": ["JavaScript", "Cryptography", "NPM"],
         "tags": ["Open Source", "NPM Package", "Security"]
       },
@@ -135,16 +134,9 @@
         "name": "Connexcs/cxAMQP",
         "url": "https://github.com/connexcs/cxAMQP",
         "npm": "https://www.npmjs.com/package/cx-amqp",
-        "description": "Key contributor responsible for converting the project to TypeScript, implementing unit testing infrastructure using Vitest, and maintaining stringent coding standards. Enhanced code robustness, maintainability, and test coverage for this critical AMQP messaging library.",
+        "description": "Key contributor: converted project to TypeScript, implemented Vitest testing infrastructure, and established coding standards for this critical AMQP messaging library.",
         "technologies": ["TypeScript", "Vitest", "Node.js", "AMQP", "Testing"],
         "tags": ["Open Source", "NPM Package", "TypeScript"]
-      },
-      {
-        "name": "Wikipedia Viewer",
-        "url": "https://codepen.io/cacious7/full/ypYZpr",
-        "description": "Interactive Wikipedia search application demonstrating clean UI/UX design and API integration skills.",
-        "technologies": ["JavaScript", "HTML5", "CSS3", "API Integration"],
-        "tags": ["Open Source", "Web App"]
       }
     ]
   },

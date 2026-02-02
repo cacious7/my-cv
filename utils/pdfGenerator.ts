@@ -201,9 +201,9 @@ export async function generateCleanPDF(cvData: CVData) {
 	yPos += spacing.afterName
 
 	// Job Title
-	pdf.setFontSize(16)
+	pdf.setFontSize(14)
 	pdf.setFont('helvetica', 'normal')
-	pdf.text('Developer Department Head', margin, yPos)
+	pdf.text('Senior Software Developer | Developer Department Head', margin, yPos)
 	yPos += spacing.afterJobTitle
 
 	// Contact Info - Line 1
@@ -222,16 +222,16 @@ export async function generateCleanPDF(cvData: CVData) {
 
 	// Contact Info - Line 2
 	xOffset = margin
+	const liWidth = addLink('LinkedIn', contact.links.linkedin, 9, xOffset)
+	xOffset += liWidth + 3
+	pdf.text('|', xOffset, yPos)
+	xOffset += 5
 	const ghWidth = addLink('GitHub', contact.links.github, 9, xOffset)
 	xOffset += ghWidth + 3
 	pdf.text('|', xOffset, yPos)
 	xOffset += 5
 	const soWidth = addLink('Stack Overflow', contact.links.stack_overflow, 9, xOffset)
 	xOffset += soWidth + 3
-	pdf.text('|', xOffset, yPos)
-	xOffset += 5
-	const fccWidth = addLink('FreeCodeCamp', contact.links.free_code_camp, 9, xOffset)
-	xOffset += fccWidth + 3
 	pdf.text('|', xOffset, yPos)
 	xOffset += 5
 	addLink('Portfolio', 'https://thunderous-druid-b48de5.netlify.app/', 9, xOffset)
@@ -295,8 +295,9 @@ export async function generateCleanPDF(cvData: CVData) {
 		pdf.text(`${exp.company_name} - Remote`, margin, yPos)
 		yPos += spacing.afterJobHeader
 		
-		// Achievements (top 5)
-		const achievements = exp.key_responsibilities_achievements.slice(0, 5)
+		// Achievements - show more for ConnexCS (first job), fewer for others
+		const maxAchievements = index === 0 ? 6 : 4
+		const achievements = exp.key_responsibilities_achievements.slice(0, maxAchievements)
 		achievements.forEach((ach: string) => {
 			addBullet(ach)
 		})

@@ -40,9 +40,8 @@
 				<li
 					v-for="(achievement, index) in experience.key_responsibilities_achievements"
 					:key="index"
-				>
-					{{ achievement }}
-				</li>
+					v-html="formatAchievement(achievement)"
+				/>
 			</ul>
 		</q-card-section>
 	</q-card>
@@ -56,6 +55,38 @@
 	}
 
 	defineProps<Props>()
+
+	function formatAchievement(text: string): string {
+		const patterns = [
+			/(\d+\+?\s*(?:engineers?|developers?|users?|years?|months?|projects?|vendors?|products?|reviews?|tools?|applications?|hours?|minutes?))/gi,
+			/(\d+%)/g,
+			/(Vue 2\.?5? to Vue 3)/gi,
+			/(Nuxt 2 to Nuxt 3)/gi,
+			/(TypeScript)/gi,
+			/(Service Workers)/gi,
+			/(Vitest)/gi,
+			/(Cypress)/gi,
+			/(E2E testing)/gi,
+			/(unit testing)/gi,
+			/(MCP \(Model Context Protocol\))/gi,
+			/(n8n)/gi,
+			/(CI\/CD pipeline)/gi,
+			/(AI-assisted)/gi,
+			/(WebAssembly)/gi,
+			/(RAG)/gi,
+			/(ClickUp)/gi,
+			/(GitHub)/gi,
+			/(SIP call flow builder)/gi,
+			/(SDP manipulation)/gi,
+			/(code review)/gi,
+		]
+
+		let result = text
+		patterns.forEach(pattern => {
+			result = result.replace(pattern, '<strong>$1</strong>')
+		})
+		return result
+	}
 </script>
 
 <style scoped>
