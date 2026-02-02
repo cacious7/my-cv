@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cacious Siamunyanga - CV</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #333; }
+        h1 { text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; }
+        h2 { border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 30px; }
+        section { margin-bottom: 20px; }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-bottom: 10px; }
+        .job, .project, .education-item, .skill-category { margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        .job h3, .project h3, .education-item h3 { margin-top: 0; }
+        strong { font-weight: bold; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .links-list li { display: inline; margin-right: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f0f0f0; }
+        .responsibilities { margin-top: 5px; padding-left: 20px; list-style-type: disc;}
+        .technologies-utilized { font-style: italic; color: #555; margin-top:5px;}
+        .download-button-container { text-align: center; margin-bottom: 25px; margin-top: 10px;}
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="download-button-container">
+            <a href="/download-pdf" class="download-button">Download CV as PDF</a>
+        </div>
+
+        <header>
+            <h1 id="fullName"></h1>
+            <p id="professionalTitle" style="text-align:center; font-style:italic;"></p>
+        </header>
+
+        <section id="contactInfo">
+            <h2>Contact Information & Digital Footprint</h2>
+            <p><strong>Phone:</strong> <span id="phone"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Location:</strong> <span id="location"></span></p>
+            <h3>Links:</h3>
+            <ul id="linksList" class="links-list"></ul>
+        </section>
+
+        <section id="executiveSummary">
+            <h2>Executive Summary</h2>
+            <p id="summaryText"></p>
+        </section>
+
+        <section id="coreCompetencies">
+            <h2>Core Competencies & Technical Acumen</h2>
+            <div id="skillsMatrix"></div>
+        </section>
+
+        <section id="professionalExperience">
+            <h2>Professional Experience</h2>
+            <div id="experienceList"></div>
+        </section>
+
+        <section id="keyProjects">
+            <h2>Key Projects & Open Source Contributions</h2>
+            <h3>ConnexCS Internal Projects</h3>
+            <div id="internalProjectsList"></div>
+            <h3>Open Source Contributions</h3>
+            <div id="openSourceContributionsList"></div>
+        </section>
+
+        <section id="educationLearning">
+            <h2>Education & Continuous Learning</h2>
+            <h3>Formal Education</h3>
+            <div id="formalEducationList"></div>
+            <h3>Self-Directed Learning</h3>
+            <div id="selfDirectedLearningList"></div>
+        </section>
+    </div>
+
+    <script>
+        const CV_DATA = {{CV_DATA_PLACEHOLDER}};
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = CV_DATA;
+
+            // Populate Header
+            document.getElementById('fullName').textContent = data.contact_information_digital_footprint.full_name;
+            document.getElementById('professionalTitle').textContent = data.contact_information_digital_footprint.professional_title;
+
+            // Populate Contact Information
+            document.getElementById('phone').textContent = data.contact_information_digital_footprint.phone_number;
+            document.getElementById('email').textContent = data.contact_information_digital_footprint.email_addresses.join(', ');
+            document.getElementById('location').textContent = data.contact_information_digital_footprint.location;
+            const linksList = document.getElementById('linksList');
+            for (const key in data.contact_information_digital_footprint.links) {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = data.contact_information_digital_footprint.links[key];
+                link.textContent = key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ');
+                link.target = "_blank"; // Open in new tab
+                listItem.appendChild(link);
+                linksList.appendChild(listItem);
+            }
+
+            // Populate Executive Summary
+            document.getElementById('summaryText').textContent = data.executive_summary;
+
+            // Populate Core Competencies
+            const skillsMatrix = document.getElementById('skillsMatrix');
+            for (const categoryKey in data.core_competencies_technical_acumen) {
+                const category = data.core_competencies_technical_acumen[categoryKey];
+                if (Array.isArray(category) && category.length > 0) {
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.classList.add('skill-category');
+
+                    const categoryTitle = document.createElement('h3');
+                    categoryTitle.textContent = categoryKey.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                    categoryDiv.appendChild(categoryTitle);
+
+                    const table = document.createElement('table');
+                    const thead = table.createTHead();
+                    const headerRow = thead.insertRow();
+                    const thSkill = document.createElement('th');
+                    thSkill.textContent = 'Skill';
+                    headerRow.appendChild(thSkill);
+                    const thProficiency = document.createElement('th');
+                    thProficiency.textContent = 'Proficiency';
+                    headerRow.appendChild(thProficiency);
+
+                    const tbody = table.createTBody();
+                    category.forEach(item => {
+                        const row = tbody.insertRow();
+                        const cellSkill = row.insertCell();
+                        cellSkill.textContent = item.skill;
+                        const cellProficiency = row.insertCell();
+                        cellProficiency.textContent = item.proficiency;
+                    });
+                    categoryDiv.appendChild(table);
+                    skillsMatrix.appendChild(categoryDiv);
+                }
+            }
+
+            // Populate Professional Experience
+            const experienceList = document.getElementById('experienceList');
+            data.professional_experience.forEach(job => {
+                const jobDiv = document.createElement('div');
+                jobDiv.classList.add('job');
+                const company = document.createElement('h3');
+                company.textContent = `${job.titles.join(' / ')} at ${job.company_name}`;
+                jobDiv.appendChild(company);
+                const dates = document.createElement('p');
+                dates.innerHTML = `<strong>Dates:</strong> ${job.dates_tenure}`;
+                jobDiv.appendChild(dates);
+
+                if(job.key_responsibilities_achievements && job.key_responsibilities_achievements.length > 0){
+                    const responsibilitiesTitle = document.createElement('p');
+                    responsibilitiesTitle.innerHTML = '<strong>Key Responsibilities & Achievements:</strong>';
+                    jobDiv.appendChild(responsibilitiesTitle);
+                    const responsibilitiesUl = document.createElement('ul');
+                    responsibilitiesUl.classList.add('responsibilities');
+                    job.key_responsibilities_achievements.forEach(resp => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = resp;
+                        responsibilitiesUl.appendChild(listItem);
+                    });
+                    jobDiv.appendChild(responsibilitiesUl);
+                }
+
+                if(job.technologies_utilized && job.technologies_utilized.length > 0){
+                    const techP = document.createElement('p');
+                    techP.classList.add('technologies-utilized');
+                    techP.innerHTML = `<strong>Technologies:</strong> ${job.technologies_utilized.join(', ')}`;
+                    jobDiv.appendChild(techP);
+                }
+                experienceList.appendChild(jobDiv);
+            });
+
+            // Populate Key Projects - Internal
+            const internalProjectsList = document.getElementById('internalProjectsList');
+            data.key_projects_open_source_contributions.connexcs_internal_projects.forEach(project => {
+                const projectDiv = document.createElement('div');
+                projectDiv.classList.add('project');
+                const name = document.createElement('h3');
+                name.textContent = project.name;
+                projectDiv.appendChild(name);
+                const description = document.createElement('p');
+                description.textContent = project.description;
+                projectDiv.appendChild(description);
+                 if(project.technologies && project.technologies.length > 0){
+                    const techP = document.createElement('p');
+                    techP.classList.add('technologies-utilized');
+                    techP.innerHTML = `<strong>Technologies:</strong> ${project.technologies.join(', ')}`;
+                    projectDiv.appendChild(techP);
+                }
+                internalProjectsList.appendChild(projectDiv);
+            });
+
+            // Populate Key Projects - Open Source
+            const openSourceContributionsList = document.getElementById('openSourceContributionsList');
+            data.key_projects_open_source_contributions.open_source_contributions.forEach(project => {
+                const projectDiv = document.createElement('div');
+                projectDiv.classList.add('project');
+                const name = document.createElement('h3');
+                if (project.url) {
+                    const link = document.createElement('a');
+                    link.href = project.url;
+                    link.textContent = project.project_name;
+                    link.target = "_blank";
+                    name.appendChild(link);
+                } else {
+                    name.textContent = project.project_name;
+                }
+                projectDiv.appendChild(name);
+                if(project.role_impact){
+                    const roleImpact = document.createElement('p');
+                    roleImpact.textContent = project.role_impact;
+                    projectDiv.appendChild(roleImpact);
+                }
+                if(project.description){
+                     const description = document.createElement('p');
+                    description.textContent = project.description;
+                    projectDiv.appendChild(description);
+                }
+                if(project.technologies && project.technologies.length > 0){
+                    const techP = document.createElement('p');
+                    techP.classList.add('technologies-utilized');
+                    techP.innerHTML = `<strong>Technologies:</strong> ${project.technologies.join(', ')}`;
+                    projectDiv.appendChild(techP);
+                }
+                openSourceContributionsList.appendChild(projectDiv);
+            });
+
+            // Populate Education - Formal
+            const formalEducationList = document.getElementById('formalEducationList');
+            data.education_continuous_learning.formal_education.forEach(edu => {
+                const eduDiv = document.createElement('div');
+                eduDiv.classList.add('education-item');
+                const institution = document.createElement('h3');
+                institution.textContent = edu.institution;
+                eduDiv.appendChild(institution);
+                const degree = document.createElement('p');
+                degree.textContent = edu.degree_course || 'Details to be confirmed';
+                eduDiv.appendChild(degree);
+                const dates = document.createElement('p');
+                dates.innerHTML = `<em>${edu.dates}</em>`;
+                eduDiv.appendChild(dates);
+                formalEducationList.appendChild(eduDiv);
+            });
+
+            // Populate Education - Self-Directed
+            const selfDirectedLearningList = document.getElementById('selfDirectedLearningList');
+            data.education_continuous_learning.self_directed_learning.forEach(learn => {
+                const learnDiv = document.createElement('div');
+                learnDiv.classList.add('education-item');
+                const topic = document.createElement('h3');
+                topic.textContent = learn.platform_topic;
+                learnDiv.appendChild(topic);
+                const details = document.createElement('p');
+                details.textContent = learn.details;
+                learnDiv.appendChild(details);
+                selfDirectedLearningList.appendChild(learnDiv);
+            });
+        });
+    </script>
+</body>
+</html>

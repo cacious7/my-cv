@@ -1,0 +1,42 @@
+{
+	"extends": "./.nuxt/tsconfig.json",
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"strict": true,
+		"jsx": "preserve",
+		"importHelpers": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"sourceMap": true,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./*"],
+			"@/*": ["./*"]
+		},
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowJs": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"types": ["vite/client", "vitest/globals", "node"]
+	},
+	"include": [
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.vue",
+		"**/*.d.ts",
+		".nuxt/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"dist",
+		".nuxt",
+		".output",
+		"nuxt-cv-backup"
+	]
+}
