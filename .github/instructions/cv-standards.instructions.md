@@ -263,10 +263,6 @@ Technologies: Tech1, Tech2, Tech3
 
 **Example**:
 ```
-ZICAS (Zambia Institute of Chartered Accountants)
-Bachelor's degree, Internet Technology and Computing          2019 - 2023
-Note: Completed while working full-time at ConnexCS (remote)
-
 Wuhan University, China
 Bachelor's Degree, Computer Software Engineering              2015 - 2019
 ```

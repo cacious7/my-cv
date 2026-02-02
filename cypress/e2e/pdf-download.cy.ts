@@ -100,7 +100,7 @@ describe('PDF Download E2E Test', () => {
 		})
 
 		it('should display education details', () => {
-			cy.contains('ZICAS').should('exist')
+			cy.contains('Wuhan University').should('exist')
 			cy.contains('Wuhan University').should('exist')
 			cy.contains(/2019.*2023/).should('exist')
 		})

@@ -201,9 +201,6 @@ Showcases early, beginner-level projects (e.g., Wiki Search), illustrating found
 #### Wuhan University
 *(Dates and specific courses to be added)*
 
-#### Zicas
-*(Dates and specific courses to be added)*
-
 ### Self-Directed Learning
 
 #### FreeCodeCamp
