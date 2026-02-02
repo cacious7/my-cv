@@ -1,5 +1,5 @@
 {
-  "executive_summary": "Senior Software Developer and Developer Department Head with 4 years of engineering experience, including 2 years leading cross-functional teams. Led major platform modernizations (Vue 2 to 3, Nuxt 2 to 3) serving large user bases, established comprehensive testing infrastructure that significantly improved code quality, and drove company-wide TypeScript adoption to enhance code maintainability and reliability. Proven track record scaling development teams, mentoring engineers, and delivering high-impact tools that streamline operations and drive business value.",
+  "executive_summary": "Senior Software Developer and Developer Department Head with 4 years of engineering experience, including 2 years leading cross-functional teams. Led major platform modernizations (Vue 2 to 3, Nuxt 2 to 3), introduced comprehensive testing practices with Vitest and Cypress, and drove company-wide TypeScript adoption. Currently leading development process optimization initiatives, implementing workflow automation with n8n and AI-assisted tooling to streamline CI/CD pipelines. Proven track record in scaling development teams, mentoring engineers, and delivering high-impact tools that drive business value.",
   "contact_information_digital_footprint": {
     "full_name": "Cacious Siamunyanga",
     "professional_title": "Senior Software Developer | Developer Department Head",
@@ -23,6 +23,7 @@
       {"skill": "People Management", "proficiency": "Soft Skill"},
       {"skill": "Constructive Feedback", "proficiency": "Soft Skill"},
       {"skill": "Rapid Learning", "proficiency": "Soft Skill"},
+      {"skill": "Process Optimization", "proficiency": "Soft Skill"},
       {"skill": "JavaScript", "proficiency": "Proficient"},
       {"skill": "TypeScript", "proficiency": "Proficient"},
       {"skill": "Vue", "proficiency": "Proficient"},
@@ -39,8 +40,11 @@
       {"skill": "Codespaces", "proficiency": "Experienced"},
       {"skill": "WebAssembly", "proficiency": "Experienced"},
       {"skill": "Service Workers", "proficiency": "Experienced"},
-      {"skill": "Vitest", "proficiency": "Medium Proficiency"},
-      {"skill": "Cypress", "proficiency": "Medium Proficiency"},
+      {"skill": "n8n", "proficiency": "Experienced"},
+      {"skill": "CI/CD", "proficiency": "Experienced"},
+      {"skill": "Vitest", "proficiency": "Experienced"},
+      {"skill": "Cypress", "proficiency": "Experienced"},
+      {"skill": "MCP", "proficiency": "Experienced"},
       {"skill": "VueFlow", "proficiency": "Familiar"},
       {"skill": "TOML", "proficiency": "Familiar"},
       {"skill": "Python", "proficiency": "Exploring"},
@@ -56,21 +60,22 @@
   "professional_experience": [
     {
       "company_name": "Connex Carrier Services Ltd (ConnexCS)",
-      "titles": ["Senior Software Developer"],
+      "titles": ["Senior Software Developer", "Developer Department Head"],
       "dates_tenure": "Apr 2021 - Present · 4 yrs 7 mos (Remote)",
       "key_responsibilities_achievements": [
         "Led developer team of 5+ engineers for 2 years, overseeing technical strategy, code quality, and project delivery.",
         "Recruited and onboarded 3 high-performing developers, establishing rigorous code review standards and technical mentorship programs.",
-        "Spearheaded migration of 2 major production applications (Control Panel and Customer Portal) from Vue 2.5 to Vue 3, significantly reducing technical debt and improving developer experience through access to modern tooling and better ecosystem support.",
-        "Introduced TypeScript across 5+ critical projects, substantially reducing production runtime errors and greatly improving code maintainability. Initiative established new team-wide standards for type safety.",
-        "Architected and launched company website using Nuxt 2, then led migration to Nuxt 3, modernizing the technology stack and ensuring long-term maintainability with current framework features and ongoing vendor support.",
-        "Built 4 production-grade internal tools: SIP call flow builder (streamlining complex call setup operations), WebAssembly-based database manager, custom IDE for platform extensions, and SDP manipulation software for telecom operations.",
-        "Implemented Service Workers across 3 web applications, enabling robust offline functionality for large user base and improving application resilience during network interruptions.",
-        "Established comprehensive testing infrastructure with Vitest and Cypress, achieving high code coverage and significantly reducing production bugs through early issue detection.",
-        "Conducted 200+ code reviews, maintaining team coding standards and mentoring junior developers on best practices and design patterns.",
-        "Researched and integrated emerging technologies (VueFlow, AI-powered log analysis) to improve diagnostic workflows, substantially reducing time required for troubleshooting complex call issues."
+        "Leading MCP (Model Context Protocol) implementation and development process optimization using n8n to automate workflows between ClickUp and GitHub, enabling AI-assisted resolution of routine issues and streamlining the CI/CD pipeline.",
+        "Introduced and established comprehensive testing culture with Vitest (unit testing) and Cypress (E2E testing), significantly improving code reliability and reducing production bugs through systematic early detection.",
+        "Spearheaded migration of 2 major production applications (Control Panel and Customer Portal) from Vue 2.5 to Vue 3, significantly reducing technical debt and improving developer experience through access to modern tooling.",
+        "Introduced TypeScript across 5+ critical projects, substantially reducing production runtime errors and establishing team-wide standards for type safety and code maintainability.",
+        "Architected and launched company website using Nuxt 2, then led migration to Nuxt 3, modernizing the technology stack and ensuring long-term maintainability.",
+        "Built 4 production-grade internal tools: SIP call flow builder, WebAssembly-based database manager, custom IDE for platform extensions, and SDP manipulation software for telecom operations.",
+        "Implemented Service Workers across 3 web applications, enabling robust offline functionality and improving application resilience during network interruptions.",
+        "Conducted 200+ code reviews, maintaining team coding standards and mentoring developers on best practices and design patterns.",
+        "Researched and integrated emerging technologies (VueFlow, AI-powered log analysis) to improve diagnostic workflows and reduce troubleshooting time for complex call issues."
       ],
-      "technologies_utilized": ["Vue", "JavaScript", "Node.js", "HTML", "CSS", "SQL", "TypeScript", "Nuxt", "Vitest", "Cypress", "Service Workers", "WASM", "VueFlow", "AI/ML concepts"]
+      "technologies_utilized": ["Vue", "JavaScript", "Node.js", "HTML", "CSS", "SQL", "TypeScript", "Nuxt", "Vitest", "Cypress", "Service Workers", "WASM", "VueFlow", "n8n", "MCP", "AI/ML concepts"]
     },
     {
       "company_name": "Gulait Online Trade",

@@ -34,7 +34,7 @@ When generating PDF versions:
 
 ## Executive Summary
 
-Highly accomplished Senior Software Developer and Developer Department Head with approximately 4 years of experience, including 2 years in leadership, specializing in modern web application development and team management. Proficient in Vue, Nuxt, TypeScript, and Node.js, with a proven track record of leading large-scale platform modernizations (Vue 2.5 to Vue 3, Nuxt 2 to Nuxt 3), introducing critical technologies like TypeScript, and building comprehensive solutions that significantly enhance company value and competitive standing. Adept at leveraging advanced debugging skills and AI agent mastery to accelerate development cycles and ensure high-quality, scalable solutions. Seeking to apply deep technical acumen and leadership prowess to drive innovation and foster high-performing development teams.
+Highly accomplished Senior Software Developer and Developer Department Head with approximately 4 years of experience, including 2 years in leadership, specializing in modern web application development and team management. Proficient in Vue, Nuxt, TypeScript, and Node.js, with a proven track record of leading large-scale platform modernizations (Vue 2.5 to Vue 3, Nuxt 2 to Nuxt 3), introducing comprehensive testing practices, and driving company-wide TypeScript adoption. Currently leading development process optimization initiatives using n8n workflow automation and AI-assisted tooling to streamline CI/CD pipelines. Adept at leveraging advanced debugging skills and AI agent mastery to accelerate development cycles and ensure high-quality, scalable solutions. Seeking to apply deep technical acumen and leadership prowess to drive innovation and foster high-performing development teams.
 
 ## Core Competencies & Technical Acumen
 
@@ -64,11 +64,14 @@ Highly accomplished Senior Software Developer and Developer Department Head with
 - **Docker** - Experienced
 - **Make** - Experienced
 - **Devcontainers / Codespaces** - Experienced
+- **n8n** - Experienced (workflow automation)
+- **CI/CD** - Experienced
+- **MCP (Model Context Protocol)** - Experienced
 - **TOML** - Familiar
 
 ### Testing
-- **Vitest (Unit Tests)** - Medium Proficiency
-- **Cypress (E2E)** - Medium Proficiency
+- **Vitest (Unit Tests)** - Experienced
+- **Cypress (E2E)** - Experienced
 
 ### Emerging Technologies
 - **AI Agent Mastery** - Proficient
@@ -109,10 +112,15 @@ Highly accomplished Senior Software Developer and Developer Department Head with
 - Created intuitive drag-and-drop call flow builder, significantly simplifying complex operational tasks and improving user efficiency
 
 **Technical Excellence**
+- Introduced and established comprehensive testing culture with Vitest for unit tests and Cypress for end-to-end testing, significantly improving software quality and reducing production bugs through systematic early detection
 - Implemented Service Workers for key web applications, enabling robust offline functionality and improving perceived performance
-- Implemented robust testing frameworks using Vitest for unit tests and Cypress for end-to-end testing, enhancing software quality and reducing critical bug occurrences
 - Actively involved in bug fixes, significantly contributing to stability and reliability of applications
 - Proactively researched and integrated cutting-edge technologies, such as VueFlow, to enhance existing features
+
+**Process Optimization & Automation**
+- Leading MCP (Model Context Protocol) implementation and development process optimization using n8n workflow automation
+- Automating workflows between ClickUp and GitHub to synchronize tasks and issues, enabling better project visibility and coordination
+- Implementing AI-assisted resolution of routine issues to streamline CI/CD pipeline and accelerate development velocity
 
 **Innovation**
 - Investigated and implemented methods to leverage AI for enhancing existing features, particularly in analysis of logging data like call SIP traces, aiming to reduce diagnostic time for complex call issues and improve data-driven decision-making
