@@ -1,42 +1,42 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///workspaces/my-cv/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///workspaces/my-cv/node_modules/@vue/shared/dist/shared.cjs.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///workspaces/my-cv/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///workspaces/my-cv/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file:///workspaces/my-cv/node_modules/vue/server-renderer/index.mjs';
-import destr, { destr as destr$1 } from 'file:///workspaces/my-cv/node_modules/destr/dist/index.mjs';
-import { createHooks } from 'file:///workspaces/my-cv/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///workspaces/my-cv/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///workspaces/my-cv/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///workspaces/my-cv/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///workspaces/my-cv/node_modules/unstorage/drivers/fs.mjs';
-import { digest } from 'file:///workspaces/my-cv/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///workspaces/my-cv/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///workspaces/my-cv/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///workspaces/my-cv/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///workspaces/my-cv/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///workspaces/my-cv/node_modules/radix3/dist/index.mjs';
+import { escapeHtml } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/@vue/shared/dist/shared.cjs.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/ufo/dist/index.mjs';
+import { renderToString } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/vue/server-renderer/index.mjs';
+import destr, { destr as destr$1 } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/destr/dist/index.mjs';
+import { createHooks } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/unstorage/drivers/fs.mjs';
+import { digest } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/ohash/dist/index.mjs';
+import { klona } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/scule/dist/index.mjs';
+import { getContext } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///workspaces/my-cv/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///workspaces/my-cv/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///workspaces/my-cv/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///workspaces/my-cv/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/youch-core/build/index.js';
+import { Youch } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///workspaces/my-cv/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///workspaces/my-cv/node_modules/errx/dist/index.js';
-import { isVNode, toValue, isRef } from 'file:///workspaces/my-cv/node_modules/vue/index.mjs';
+import { stringify, uneval } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/devalue/index.js';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/errx/dist/index.js';
+import { isVNode, toValue, isRef } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/vue/index.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1 } from 'file:///workspaces/my-cv/node_modules/pathe/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///workspaces/my-cv/node_modules/unhead/dist/server.mjs';
-import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///workspaces/my-cv/node_modules/unhead/dist/plugins.mjs';
-import { walkResolver } from 'file:///workspaces/my-cv/node_modules/unhead/dist/utils.mjs';
+import { dirname as dirname$1, resolve as resolve$1 } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/pathe/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/unhead/dist/server.mjs';
+import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/unhead/dist/plugins.mjs';
+import { walkResolver } from 'file:///mnt/c/Users/HP/Documents/my-cv/node_modules/unhead/dist/utils.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/workspaces/my-cv/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/mnt/c/Users/HP/Documents/my-cv/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -48,11 +48,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/workspaces/my-cv","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/workspaces/my-cv/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/workspaces/my-cv/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/workspaces/my-cv/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/workspaces/my-cv/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/mnt/c/Users/HP/Documents/my-cv","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/mnt/c/Users/HP/Documents/my-cv/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/mnt/c/Users/HP/Documents/my-cv/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/mnt/c/Users/HP/Documents/my-cv/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/mnt/c/Users/HP/Documents/my-cv/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -1017,13 +1017,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _YcYAeNHxmqZ33RV0jxoEmLrgffvKB7GACVZ5n8 = (function(nitro) {
+const _gcMVaT0ysuU2_EILSJNRAuJ6p_M7egBdUA8e283TJ_8 = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "/workspaces/my-cv";
+const rootDir = "/mnt/c/Users/HP/Documents/my-cv";
 
 const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"Senior Software Developer and Developer Department Head with expertise in Vue, Nuxt, TypeScript, and Node.js"},{"name":"keywords","content":"Software Developer, Vue.js, Nuxt.js, TypeScript, Node.js, Full Stack Developer"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"title":"Cacious Siamunyanga - Senior Software Developer"};
 
@@ -1042,7 +1042,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : void 0
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _VQ3UViSyb_oUtQATEnI6U2MuKu2nXlB9jgxcSG_3Ns = (nitroApp) => {
+const _cNS2tkvN5_PCwXrfx0Fo8niJsJIHtf38Bc68rpQd0A = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -1112,8 +1112,8 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _YcYAeNHxmqZ33RV0jxoEmLrgffvKB7GACVZ5n8,
-_VQ3UViSyb_oUtQATEnI6U2MuKu2nXlB9jgxcSG_3Ns
+  _gcMVaT0ysuU2_EILSJNRAuJ6p_M7egBdUA8e283TJ_8,
+_cNS2tkvN5_PCwXrfx0Fo8niJsJIHtf38Bc68rpQd0A
 ];
 
 const assets = {};
@@ -1141,7 +1141,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _OukiTi = eventHandler((event) => {
+const _QOZ3lk = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -1279,8 +1279,8 @@ function publicAssetsURL(...path) {
 
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
-const getServerEntry = () => import('file:///workspaces/my-cv/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
-const getClientManifest = () => import('file:///workspaces/my-cv/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file:///mnt/c/Users/HP/Documents/my-cv/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file:///mnt/c/Users/HP/Documents/my-cv/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {
@@ -1529,13 +1529,13 @@ async function getIslandContext(event) {
   return ctx;
 }
 
-const _lazy_22dkCN = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_HXNqBM = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '', handler: _OukiTi, lazy: false, middleware: true, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_22dkCN, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _QOZ3lk, lazy: false, middleware: true, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_HXNqBM, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_22dkCN, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_HXNqBM, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
