@@ -222,7 +222,11 @@ export async function generateCleanPDF(cvData: CVData) {
 	xOffset += soWidth + 3
 	pdf.text('|', xOffset, yPos)
 	xOffset += 5
-	addLink('FreeCodeCamp', contact.links.free_code_camp, 9, xOffset)
+	const fccWidth = addLink('FreeCodeCamp', contact.links.free_code_camp, 9, xOffset)
+	xOffset += fccWidth + 3
+	pdf.text('|', xOffset, yPos)
+	xOffset += 5
+	addLink('Portfolio', 'https://thunderous-druid-b48de5.netlify.app/', 9, xOffset)
 	yPos += spacing.afterContactInfo
 
 	// === SUMMARY ===
